@@ -14,23 +14,23 @@ const Header = () => {
               </div>
             </div>
             <div className="header-left-content-item">
-              <Link to={""}>Templates</Link>
+              <Link to={"/templates"}>Templates</Link>
             </div>
             <div className="header-left-content-item">
-              <Link to={""}>Discover</Link>
+              <Link to={"/discover"}>Discover</Link>
             </div>
             <div className="header-left-content-item">
-              <Link to={""}>Learn</Link>
+              <Link to={"/learn"}>Learn</Link>
             </div>
           </div>
         </div>
         <div className="header-right">
           <div className="header-right-content">
             <div className="header-right-content-item">
-              <Link to={""}>Log in</Link>
+              <Link to={"/login"}>Log in</Link>
             </div>
             <div className="header-right-content-item">
-              <Link to={""}>Sign up</Link>
+              <Link to={"/register"}>Sign up free</Link>
             </div>
           </div>
         </div>
