@@ -395,8 +395,16 @@
   justify-content: flex-start;
   align-items: center;
   height: 100%;
+  width: 100%;
+  padding-top: 64px;
+}
+
+.footer .footer-container .footer-content .footer-content-top {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 50%;
-  padding: 64px 0;
 }
 
 .footer
@@ -410,7 +418,7 @@
   align-items: center;
   width: 100%;
   gap: 20px;
-  margin-top: 40px;
+  margin: 40px 0;
 }
 
 .footer
@@ -454,11 +462,11 @@
   font-size: 1em;
 }
 
-.intro
-  .intro-container
-  .intro-content
-  .intro-content-left
-  .intro-content-item-button:hover {
+.footer
+  .footer-container
+  .footer-content
+  .footer-content-left
+  .footer-content-item-button:hover {
   background-color: #d8a3d8;
   transition: background-color 0.3s ease;
 }
@@ -471,4 +479,389 @@
   a {
   text-decoration: none;
   color: inherit;
+}
+
+.footer
+  .footer-container
+  .footer-content
+  .footer-content-top
+  .footer-content-item-button:hover {
+  background-color: #d8a3d8;
+  transition: background-color 0.3s ease;
+}
+
+.footer .footer-container .footer-content .footer-content-bottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  width: 80%;
+  background-color: #ffffff;
+  padding-top: 64px;
+  padding-bottom: 32px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+.footer
+  .footer-container
+  .footer-content
+  .footer-content-bottom
+  .footer-content-item:nth-child(1) {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 5em;
+  height: 100%;
+  width: 80%;
+}
+
+.footer
+  .footer-container
+  .footer-content
+  .footer-content-bottom
+  .footer-content-item:nth-child(1)
+  div {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer
+  .footer-container
+  .footer-content
+  .footer-content-bottom
+  .footer-content-item:nth-child(1)
+  div
+  h3 {
+  margin-bottom: 10px;
+  font-size: 1.5em;
+  font-family: "Poppins-Bold";
+}
+
+.footer
+  .footer-container
+  .footer-content
+  .footer-content-bottom
+  .footer-content-item:nth-child(1)
+  div
+  a {
+  font-family: "Poppins-Regular";
+  font-size: 1.2em;
+  margin: 10px 0;
+  width: fit-content;
+}
+
+.footer
+  .footer-container
+  .footer-content
+  .footer-content-bottom
+  .footer-content-item:nth-child(1)
+  div
+  a:hover {
+  text-decoration: underline;
+}
+
+.footer
+  .footer-container
+  .footer-content
+  .footer-content-bottom
+  .footer-content-item:nth-child(2) {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  height: 100%;
+  width: 80%;
+}
+
+.footer
+  .footer-container
+  .footer-content
+  .footer-content-bottom
+  .footer-content-item:nth-child(2)
+  div {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.footer
+  .footer-container
+  .footer-content
+  .footer-content-bottom
+  .footer-content-item:nth-child(2)
+  div
+  a {
+  background-color: #1e2330;
+  border-radius: 4px;
+  color: #ffffff;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 25px 50px;
+}
+
+.footer
+  .footer-container
+  .footer-content
+  .footer-content-bottom
+  .footer-content-item:nth-child(2)
+  div:nth-child(1)
+  a:nth-child(2) {
+  border-radius: 999px;
+}
+
+.footer
+  .footer-container
+  .footer-content
+  .footer-content-bottom
+  .footer-content-item:nth-child(2)
+  div:nth-child(2)
+  a {
+  border-radius: 999px;
+  padding: 15px 20px;
+  font-size: 1.5em;
+}
+
+/* Register */
+.register {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+}
+
+.register .register-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  background-color: #ffffff;
+}
+
+.register .register-container .register-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
+  width: 50%;
+  padding: 128px 0;
+}
+
+.register .register-container .register-content .register-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.register .register-container .register-content .register-title h1 {
+  font-family: "Poppins-Black";
+  font-size: 3.5em;
+  color: #780016;
+}
+
+.register .register-container .register-content .register-form {
+  margin: 40px auto;
+  width: 50%;
+}
+
+.register .register-container .register-content .register-form form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 20px;
+}
+
+.register
+  .register-container
+  .register-content
+  .register-form
+  form
+  .form-group {
+  width: 100%;
+}
+
+.register
+  .register-container
+  .register-content
+  .register-form
+  form
+  .form-group
+  input {
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
+.register
+  .register-container
+  .register-content
+  .register-form
+  form
+  .button-container {
+  width: 100%;
+}
+
+.register
+  .register-container
+  .register-content
+  .register-form
+  form
+  .button-container
+  button {
+  width: 100%;
+  background-color: #4f2173;
+  border-radius: 999px;
+  padding: 25px 50px;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 1em;
+  font-family: "Poppins-Regular";
+}
+
+.register
+  .register-container
+  .register-content
+  .register-form
+  form
+  .button-container
+  button:hover {
+  background-color: #5a2b8c;
+  transition: background-color 0.3s ease;
+}
+
+.register .register-container .register-content .register-footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.register .register-container .register-content .register-footer a {
+  text-decoration: underline;
+  color: #780016;
+  font-family: "Poppins-Regular";
+}
+
+/* Login */
+.login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+}
+
+.login .login-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  background-color: #ffffff;
+}
+
+.login .login-container .login-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
+  width: 50%;
+  padding: 128px 0;
+}
+
+.login .login-container .login-content .login-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.login .login-container .login-content .login-title h1 {
+  font-family: "Poppins-Black";
+  font-size: 3.5em;
+  color: #780016;
+}
+
+.login .login-container .login-content .login-form {
+  margin: 40px auto;
+  width: 50%;
+}
+
+.login .login-container .login-content .login-form form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 20px;
+}
+
+.login .login-container .login-content .login-form form .login-form-item {
+  width: 100%;
+}
+
+.login .login-container .login-content .login-form form .login-form-item input {
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
+.login .login-container .login-content .login-form form .button-container {
+  width: 100%;
+}
+
+.login
+  .login-container
+  .login-content
+  .login-form
+  form
+  .button-container
+  button {
+  width: 100%;
+  background-color: #4f2173;
+  border-radius: 999px;
+  padding: 25px 50px;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 1em;
+  font-family: "Poppins-Regular";
+}
+
+.login
+  .login-container
+  .login-content
+  .login-form
+  form
+  .button-container
+  button:hover {
+  background-color: #5a2b8c;
+  transition: background-color 0.3s ease;
+}
+
+.login .login-container .login-content .login-footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.login .login-container .login-content .login-footer a {
+  text-decoration: underline;
+  color: #780016;
+  font-family: "Poppins-Regular";
 }
