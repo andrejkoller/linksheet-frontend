@@ -339,7 +339,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 100%;
   width: 100%;
 }
 
@@ -351,7 +351,6 @@
   height: 100%;
   width: 100%;
   background-color: #780016;
-  padding: 0 5vw;
 }
 
 .faq .faq-container .faq-content {
@@ -359,7 +358,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  gap: 1em;
+  text-align: center;
+  width: 50%;
+  color: #e9c0e9;
   padding: 64px 0;
 }
 
@@ -367,6 +369,37 @@
   font-family: "Poppins-Black";
   font-size: 3.5em;
   color: #e9c0e9;
+}
+
+.faq .faq-container .faq-content .faq-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.faq .faq-container .faq-content .faq-list .faq-item {
+  padding: 48px;
+  background-color: #52000f;
+  border-radius: 32px;
+  margin-bottom: 20px;
+  border-bottom: 0;
+  cursor: pointer;
+}
+
+.faq .faq-container .faq-content .faq-list .faq-item .faq-question {
+  font-size: 1.5em;
+  font-family: "Poppins-Medium";
+  color: #e9c0e9;
+  cursor: pointer;
+}
+
+.faq .faq-container .faq-content .faq-list .faq-item .faq-answer {
+  font-size: 1.2em;
+  font-family: "Poppins-Regular";
+  color: #e9c0e9;
+  text-align: left;
 }
 
 /* Footer */
