@@ -8,6 +8,8 @@ import Templates from "./components/Templates";
 import Discover from "./components/Discover";
 import Learn from "./components/Learn";
 import Dashboard from "./components/Dashboard";
+import DashboardLink from "./components/DashboardLink";
+import DashboardAppearance from "./components/DashboardAppearance";
 
 function App() {
   const location = useLocation();
@@ -27,7 +29,10 @@ function App() {
         <Route path="/templates" element={<Templates />} />
         <Route path="/discover" element={<Discover />} />
         <Route path="/learn" element={<Learn />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/dashboard/*" element={<Dashboard />}>
+          <Route index element={<DashboardLink />} />
+          <Route path="appearance" element={<DashboardAppearance />} />
+        </Route>
       </Routes>
     </div>
   );

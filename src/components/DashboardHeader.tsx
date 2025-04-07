@@ -12,8 +12,8 @@ const DashboardHeader = () => {
         <div className="dashboard-header-right">
           <div className="dashboard-header-profile">
             <MenuRoot>
-              <MenuTrigger>
-                <Button variant={"outline"} colorScheme="teal">
+              <MenuTrigger asChild>
+                <Button variant={"outline"}>
                   <span>andrejkoller</span>
                   <i className="fa-solid fa-chevron-down"></i>
                 </Button>
