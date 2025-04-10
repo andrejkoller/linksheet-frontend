@@ -11,6 +11,7 @@ import Dashboard from "./components/Dashboard";
 import DashboardLink from "./components/DashboardLink";
 import DashboardAppearance from "./components/DashboardAppearance";
 import { ToastContainer } from "react-toastify";
+import DashboardAccount from "./components/DashboardAccount";
 
 function App() {
   const location = useLocation();
@@ -33,6 +34,7 @@ function App() {
           <Route path="/dashboard/*" element={<Dashboard />}>
             <Route index element={<DashboardLink />} />
             <Route path="appearance" element={<DashboardAppearance />} />
+            <Route path="account" element={<DashboardAccount />} />
           </Route>
         </Routes>
       </div>

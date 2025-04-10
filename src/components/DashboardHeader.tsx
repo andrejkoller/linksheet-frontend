@@ -33,7 +33,10 @@ const DashboardHeader = () => {
               <Portal>
                 <Menu.Positioner>
                   <Menu.Content>
-                    <Menu.Item value="new-txt">
+                    <Menu.Item
+                      value="account"
+                      onClick={() => navigate("/dashboard/account")}
+                    >
                       <i className="fa-regular fa-user"></i>
                       <span>Account</span>
                     </Menu.Item>

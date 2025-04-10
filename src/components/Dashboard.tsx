@@ -18,13 +18,18 @@ const Dashboard = () => {
               <div className="dashboard-body">
                 <Outlet />
                 <div className="dashboard-body-space-container">
-                  <div className="dashboard-body-space">
+                  <div className="dashboard-body-space-link-items">
+                    <div className="dashboard-body-space-link-notification">
+                      <span>No links yet. Create a few!</span>
+                    </div>
+                  </div>
+                  <div className="dashboard-body-space-link">
                     <NavLink
                       to={"/dashboard/space"}
-                      className="dashboard-body-space-item"
+                      className="dashboard-body-space-link-item"
                     >
-                      <i className="fa-solid fa-mobile-screen"></i>{" "}
-                      <span>My Space</span>
+                      <span>Visit your space</span>
+                      <i className="fa-solid fa-arrow-up-right-from-square"></i>
                     </NavLink>
                   </div>
                 </div>

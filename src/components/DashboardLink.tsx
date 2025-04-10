@@ -12,6 +12,11 @@ const DashboardLink = () => {
             </Button>
           </div>
         </div>
+        <div className="dashboard-link-list">
+          <span className="link-list-notification">
+            Oops! Looks like you haven't added any links yet.
+          </span>
+        </div>
       </div>
     </div>
   );
