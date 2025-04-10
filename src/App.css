@@ -1122,3 +1122,11 @@
   width: 100%;
   padding: 0 2.5vw;
 }
+
+.loading-spinner {
+  margin-top: 40px;
+}
+
+.chakra-menu__item {
+  cursor: pointer;
+}

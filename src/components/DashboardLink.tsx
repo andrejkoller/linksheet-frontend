@@ -1,7 +1,7 @@
 const DashboardLink = () => {
   return (
     <div className="dashboard-link-container">
-      <div className="dashboard-link-content">hi</div>
+      <div className="dashboard-link-content"></div>
     </div>
   );
 };
