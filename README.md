@@ -15,6 +15,6 @@
     <img src="https://github.com/user-attachments/assets/3448dc97-1c78-44aa-890a-83e30ba1ecbb">
   </div>
   <div>
-    <img src="https://github.com/user-attachments/assets/fd4fc082-54de-42e3-92af-4aa0bc7e6c1a">
+    <img src="https://github.com/user-attachments/assets/1e1378e9-a83e-457e-9280-0f7d5681fe0a">
   </div>
 </div>
