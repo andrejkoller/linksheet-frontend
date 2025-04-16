@@ -1,9 +1,9 @@
 import axios from "axios";
-import { Faq } from "../models/Faq";
+import { Link } from "../models/Link";
 
-const API_URL = "https://localhost:7187/api/faq";
+const API_URL = "https://localhost:7187/api/link";
 
-export const getFAQs = async (): Promise<Faq[]> => {
+export const getLinks = async (): Promise<Link[]> => {
   try {
     const response = await axios.get(API_URL, {
       method: "GET",
@@ -11,10 +11,10 @@ export const getFAQs = async (): Promise<Faq[]> => {
         "Content-Type": "application/json",
       },
     });
-    
+
     return response.data;
   } catch (error) {
-    console.error("Error fetching FAQs:", error);
+    console.error("Error fetching links:", error);
     throw error;
   }
 };
