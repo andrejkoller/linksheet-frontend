@@ -1,6 +1,7 @@
-import { NavLink, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import DashboardHeader from "./DashboardHeader";
 import DashboardSidebar from "./DashboardSidebar";
+import DashboardSpace from "./DashboardSpace";
 
 const Dashboard = () => {
   return (
@@ -17,21 +18,8 @@ const Dashboard = () => {
               </div>
               <div className="dashboard-body">
                 <Outlet />
-                <div className="dashboard-body-space-container">
-                  <div className="dashboard-body-space-link-items">
-                    <div className="dashboard-body-space-link-notification">
-                      <span>No links yet. Create a few!</span>
-                    </div>
-                  </div>
-                  <div className="dashboard-body-space-link">
-                    <NavLink
-                      to={"/dashboard/space"}
-                      className="dashboard-body-space-link-item"
-                    >
-                      <span>Visit your space</span>
-                      <i className="fa-solid fa-arrow-up-right-from-square"></i>
-                    </NavLink>
-                  </div>
+                <div className="dashboard-space">
+                  <DashboardSpace />
                 </div>
               </div>
             </div>

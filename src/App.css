@@ -1316,34 +1316,106 @@
   box-shadow: -1px 0px 0px 0px rgba(0, 0, 0, 0.1);
   position: fixed;
   right: 0;
-  height: 100%;
+  height: calc(100% - 10vh);
+}
+
+.dashboard-body .dashboard-body-space-container .dashboard-body-space-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 70%;
+  min-height: 75%;
+  margin: auto;
+  background-color: #080808;
+  border-radius: 24px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 
 .dashboard-body
   .dashboard-body-space-container
+  .dashboard-body-space-content
+  .dashboard-body-space-header {
+  margin: 40px 0 20px 0;
+}
+
+.dashboard-body
+  .dashboard-body-space-container
+  .dashboard-body-space-content
+  .dashboard-body-space-header
+  .profile-banner {
+  background-color: #000000;
+  color: #ffffff;
+  text-align: center;
+  border-radius: 999px;
+  width: 72px;
+  height: 72px;
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.dashboard-body
+  .dashboard-body-space-container
+  .dashboard-body-space-content
+  .dashboard-body-space-header
+  h1 {
+  font-family: "Poppins-Bold";
+  font-size: 14px;
+  color: #ead8c2;
+}
+
+.dashboard-body
+  .dashboard-body-space-container
+  .dashboard-body-space-content
   .dashboard-body-space-link-items {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100%;
+  width: 100%;
 }
 
 .dashboard-body
   .dashboard-body-space-container
+  .dashboard-body-space-content
   .dashboard-body-space-link-items
-  .dashboard-body-space-link-notification {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  background-color: #ffffff;
-  border-radius: 12px;
-  border: 1px solid #d9d9d7;
+  .dashboard-space-link-item {
+  color: #ead8c2;
+  font-family: "Poppins-Regular";
+  border: 1px solid #ead8c2;
+  padding: 16px 44px;
+  width: 75%;
   text-align: center;
-  padding: 20px;
-  font-family: "Poppins-Medium";
+  font-size: 12px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.dashboard-body
+  .dashboard-body-space-container
+  .dashboard-body-space-content
+  .dashboard-body-space-link-items
+  .dashboard-space-link-item:hover {
+  background-color: #ead8c2;
+  color: #080808;
+  transition: background-color 0.3s ease;
+}
+
+.dashboard-body
+  .dashboard-body-space-container
+  .dashboard-body-space-content
+  .dashboard-body-space-link-items
+  .dashboard-space-link-item
+  a {
+  width: 100%;
+  display: inline-block;
 }
 
 .dashboard-body .dashboard-body-space-container .dashboard-body-space-link {
@@ -1364,7 +1436,7 @@
   justify-content: center;
   align-items: center;
   gap: 10px;
-  font-family: "Poppins-Medium";
+  font-family: "Poppins-Regular";
 }
 
 .loading-spinner {
