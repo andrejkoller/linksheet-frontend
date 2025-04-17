@@ -6,6 +6,6 @@ export interface Link {
     url: string;
     description: string;
     isActive: boolean;
-    user: User;
-    userId: number;
+    user?: User;
+    userId?: number;
 }

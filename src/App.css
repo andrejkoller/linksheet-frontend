@@ -1593,3 +1593,41 @@
   font-family: "Poppins-Semibold";
   font-size: 16px;
 }
+
+/* Add Link Dialog */
+
+.dialog-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.dialog-body .dialog-form-item {
+  display: flex;
+  justify-content: space-between;
+  font-family: "Poppins-Semibold";
+}
+
+.dialog-body .dialog-form-item input {
+  padding: 1.8rem;
+  border-radius: 12px;
+  border: none;
+  background-color: #f3f3f1;
+  color: #000000;
+  font-family: "Poppins-Regular";
+  font-size: 1em;
+}
+
+.dialog-body .dialog-form-item input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #d2e823;
+}
+
+.dialog-footer button {
+  background-color: #4f2173;
+  border-radius: 999px;
+  padding: 25px 50px;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 1em;
+}

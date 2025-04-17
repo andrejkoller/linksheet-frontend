@@ -19,6 +19,21 @@ export const getLinks = async (): Promise<Link[]> => {
   }
 };
 
+export const createLink = async (link: Link): Promise<Link> => {
+  try {
+    const response = await axiosInstance.post(`${API_URL}/post`, link, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    return response.data;
+  } catch (error) {
+    console.error("Error creating link:", error);
+    throw error;
+  }
+};
+
 export const deleteLink = async (linkId: number): Promise<void> => {
   try {
     await axiosInstance.delete(`${API_URL}/delete/${linkId}`, {
