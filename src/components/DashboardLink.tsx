@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Link } from "../models/Link";
 import { getLinks } from "../services/LinkService";
 import { toast } from "react-toastify";
+import { deleteLink } from "../services/LinkService";
 
 const DashboardLink = () => {
   const [links, setLinks] = useState<Link[]>([]);
@@ -29,6 +30,22 @@ const DashboardLink = () => {
 
     fetchLinks();
   }, []);
+
+  const handleDeleteLink = async (linkId: number) => {
+    try {
+      await deleteLink(linkId);
+      setLinks((prevLinks) => prevLinks.filter((link) => link.id !== linkId));
+      toast.success("Link deleted successfully.");
+    } catch (err) {
+      if (err instanceof Error) {
+        setError(err.message);
+      } else {
+        setError(String(err));
+      }
+      console.error("Error deleting link:", err);
+      toast.error("Failed to delete link. Please try again later.");
+    }
+  };
 
   return (
     <div className="dashboard-link-container">
@@ -83,6 +100,7 @@ const DashboardLink = () => {
                   <Button
                     variant={"outline"}
                     className="dashboard-link-item-button"
+                    onClick={() => handleDeleteLink(link.id)}
                   >
                     <i className="fa-regular fa-trash-can"></i>
                   </Button>
