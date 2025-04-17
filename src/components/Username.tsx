@@ -1,10 +1,10 @@
-import { NavLink } from "react-router-dom";
-import { Link } from "../models/Link";
 import { useEffect, useState } from "react";
+import { Link } from "../models/Link";
 import { getLinks } from "../services/LinkService";
 import { toast } from "react-toastify";
+import { NavLink } from "react-router-dom";
 
-const DashboardSpace = () => {
+const Username = () => {
   const [links, setLinks] = useState<Link[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -30,18 +30,28 @@ const DashboardSpace = () => {
     };
 
     fetchLinks();
-  }, []);
+  });
 
   return (
-    <div className="dashboard-body-space-container">
-      <div className="dashboard-body-space-content">
-        <div className="dashboard-body-space-header">
-          <div className="profile-banner">
+    <div className="username-container">
+      <div className="username-panel-header">
+        <div className="username-panel-title">
+          <h2>This is your Linksheet</h2>
+        </div>
+        <div className="username-panel-link">
+          <NavLink to={"/dashboard"} style={{ backgroundColor: "transparent" }}>
+            Edit
+          </NavLink>
+        </div>
+      </div>
+      <div className="username-content">
+        <div className="username-header">
+          <div className="username-banner">
             {currentUser.substring(0, 1).toUpperCase()}
           </div>
-          <h1 className="profile-name">@{currentUser}</h1>
+          <h1 className="username-title">@{currentUser}</h1>
         </div>
-        <div className="dashboard-body-space-link-items">
+        <div className="username-links">
           {loading && <p>Loading links...</p>}
           {error && <p>Error: {error}</p>}
           {!loading && !error && links.length === 0 && (
@@ -50,35 +60,19 @@ const DashboardSpace = () => {
           {!loading &&
             !error &&
             links.map((link) => (
-              <div key={link.id} className="dashboard-space-link-item">
-                <div className="dashboard-space-link-item-content">
-                  <div className="dashboard-space-link-item-info">
-                    <a
-                      href={link.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {link.title}
-                    </a>
-                  </div>
-                </div>
+              <div key={link.id} className="username-link-item">
+                <a href={link.url} target="_blank" rel="noopener noreferrer">
+                  {link.title}
+                </a>
               </div>
             ))}
         </div>
-      </div>
-      <div className="dashboard-body-space-link">
-        <NavLink
-          to={"/dashboard/" + currentUser}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="dashboard-body-space-link-item"
-        >
-          <span>Visit your space</span>
-          <i className="fa-solid fa-arrow-up-right-from-square"></i>
-        </NavLink>
+        <div className="username-footer">
+          <NavLink to={"/register"}>Join {currentUser} on Linksheet!</NavLink>
+        </div>
       </div>
     </div>
   );
 };
 
-export default DashboardSpace;
+export default Username;
