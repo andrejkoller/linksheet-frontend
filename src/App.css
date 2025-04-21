@@ -1792,3 +1792,129 @@
   background-color: #5a2b8c;
   transition: background-color 0.3s ease;
 }
+
+/* Dashboard Appearance */
+.dashboard-appearance-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 75%;
+  height: 100%;
+  min-height: 90vh;
+  margin-right: auto;
+  padding: 0 10vw;
+}
+
+.dashboard-appearance-container .dashboard-appearance-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.dashboard-appearance-container
+  .dashboard-appearance-content
+  .dashboard-appearance-header {
+  width: 100%;
+}
+
+.dashboard-appearance-container
+  .dashboard-appearance-content
+  .dashboard-appearance-header
+  h1 {
+  font-family: "Poppins-Bold";
+  font-size: 1.2em;
+  color: #000000;
+  margin: 20px 0;
+  text-align: left;
+}
+
+.dashboard-appearance-container
+  .dashboard-appearance-content
+  .dashboard-appearance-body {
+  width: 100%;
+}
+
+.dashboard-appearance-container
+  .dashboard-appearance-content
+  .dashboard-appearance-body
+  .appearance-settings {
+  margin-bottom: 20px;
+}
+
+.dashboard-appearance-container
+  .dashboard-appearance-content
+  p.dashboard-appearance-description {
+  font-family: "Poppins-Regular";
+  font-size: 1em;
+  color: #000000;
+  margin-bottom: 20px;
+}
+
+.dashboard-appearance-container
+  .dashboard-appearance-content
+  .dashboard-appearance-body
+  label.appearance-setting-label {
+  display: flex;
+  margin-bottom: 20px;
+  font-family: "Poppins-Semibold";
+  font-size: 1em;
+  color: #000000;
+}
+
+.dashboard-appearance-container
+  .dashboard-appearance-content
+  .dashboard-appearance-body
+  .appearance-settings
+  input {
+  width: 100%;
+  padding: 25px;
+  border-radius: 12px;
+  border: none;
+  background-color: #f3f3f1;
+  color: #000000;
+  font-family: "Poppins-Regular";
+  font-size: 1em;
+}
+.dashboard-appearance-container
+  .dashboard-appearance-content
+  .dashboard-appearance-body
+  .appearance-settings
+  input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #d2e823;
+}
+
+.dashboard-appearance-container
+  .dashboard-appearance-content
+  .dashboard-appearance-body
+  .appearance-settings
+  .dashboard-appearance-edit-button {
+  background-color: #4f2173;
+  border-radius: 999px;
+  padding: 25px 50px;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+.dashboard-appearance-container
+  .dashboard-appearance-content
+  .dashboard-appearance-body
+  .appearance-settings
+  .dashboard-appearance-edit-button:hover {
+  background-color: #5a2b8c;
+  transition: background-color 0.3s ease;
+}
+
+.dashboard-appearance-container
+  .dashboard-appearance-content
+  .dashboard-appearance-body
+  .appearance-settings
+  .appearance-background-color {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
