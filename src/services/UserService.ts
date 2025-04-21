@@ -1,24 +1,34 @@
 import { User } from "../models/User";
+import axiosInstance from "./axiosInstance";
 
 const API_URL = "https://localhost:7187/api/user";
 
-export const getUser = async (userId: number): Promise<User> => {
+export const getCurrentUser = async (): Promise<User> => {
   try {
-    const response = await fetch(`${API_URL}/${userId}`, {
-      method: "GET",
+    const response = await axiosInstance.get(`${API_URL}/current`, {
       headers: {
         "Content-Type": "application/json",
       },
     });
 
-    if (!response.ok) {
-      throw new Error("Failed to fetch user data");
-    }
-
-    const data = await response.json();
-    return data;
+    return response.data;
   } catch (error) {
-    console.error("Error fetching user:", error);
+    console.error("Error fetching current user:", error);
+    throw error;
+  }
+};
+
+export const updateUser = async (userId: number, user: User): Promise<User> => {
+  try {
+    const response = await axiosInstance.put(`${API_URL}/put/${userId}`, user, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    return response.data;
+  } catch (error) {
+    console.error("Error updating user:", error);
     throw error;
   }
 };
