@@ -61,3 +61,25 @@ export const updateLink = async (linkId: number, link: Link): Promise<Link> => {
     throw error;
   }
 };
+
+export const updateLinkVisibility = async (
+  linkId: number,
+  link: Link
+): Promise<Link> => {
+  try {
+    const response = await axiosInstance.put(
+      `${API_URL}/put/${linkId}/toggle`,
+      link,
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+
+    return response.data;
+  } catch (error) {
+    console.error("Error updating link visibility:", error);
+    throw error;
+  }
+};

@@ -1,7 +1,11 @@
 import { Button, Spinner, Switch, useDisclosure } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { Link } from "../../models/Link";
-import { getLinks, deleteLink } from "../../services/LinkService";
+import {
+  getLinks,
+  deleteLink,
+  updateLinkVisibility,
+} from "../../services/LinkService";
 import { toast } from "react-toastify";
 import AddLinkDialog from "./dialogs/AddLinkDialog";
 import UpdateLinkDialog from "./dialogs/UpdateLinkDialog";
@@ -62,6 +66,26 @@ const DashboardLink = () => {
     setIsUpdateDialogOpen(true);
   };
 
+  const handleSwitchChange = (linkId: number) => {
+    const link = links.find((link) => link.id === linkId);
+    if (link) {
+      const updatedLink = { ...link, isActive: !link.isActive };
+      updateLinkVisibility(linkId, updatedLink)
+        .then(() => {
+          setLinks((prevLinks) =>
+            prevLinks.map((l) => (l.id === linkId ? updatedLink : l))
+          );
+          toast.success("Link visibility updated successfully.");
+        })
+        .catch((err) => {
+          console.error("Error updating link visibility:", err);
+          toast.error(
+            "Failed to update link visibility. Please try again later."
+          );
+        });
+    }
+  };
+
   return (
     <>
       <div className="dashboard-addLink-dialog">
@@ -117,14 +141,17 @@ const DashboardLink = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        {link.url}
+                        {link.url.length > 50
+                          ? link.url.substring(0, 50) + "..."
+                          : link.url}
                       </a>
                     </div>
                     <div className="dashboard-link-item-activation">
                       <Switch.Root
                         colorPalette={"green"}
                         size="lg"
-                        defaultChecked={link.isActive}
+                        onChange={() => handleSwitchChange(link.id)}
+                        checked={link.isActive}
                       >
                         <Switch.HiddenInput />
                         <Switch.Control />
