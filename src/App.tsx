@@ -2,17 +2,17 @@ import "./App.css";
 import Home from "./components/Home";
 import Header from "./components/Header";
 import { Route, Routes, useLocation } from "react-router-dom";
-import Register from "./components/Register";
-import Login from "./components/Login";
+import Register from "./components/authentication/Register";
+import Login from "./components/authentication/Login";
 import Templates from "./components/Templates";
 import Discover from "./components/Discover";
 import Learn from "./components/Learn";
-import Dashboard from "./components/Dashboard";
-import DashboardLink from "./components/DashboardLink";
-import DashboardAppearance from "./components/DashboardAppearance";
+import Dashboard from "./components/dashboard/Dashboard";
+import DashboardLink from "./components/dashboard/DashboardLink";
+import DashboardAppearance from "./components/dashboard/DashboardAppearance";
 import { ToastContainer } from "react-toastify";
-import DashboardAccount from "./components/DashboardAccount";
-import Username from "./components/Username";
+import DashboardAccount from "./components/dashboard/DashboardAccount";
+import Username from "./components/dashboard/Username";
 
 function App() {
   const location = useLocation();

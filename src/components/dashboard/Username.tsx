@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { Link } from "../models/Link";
-import { getLinks } from "../services/LinkService";
+import { Link } from "../../models/Link";
+import { getLinks } from "../../services/LinkService";
 import { toast } from "react-toastify";
 import { NavLink } from "react-router-dom";
 

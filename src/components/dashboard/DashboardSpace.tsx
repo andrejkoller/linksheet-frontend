@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
-import { Link } from "../models/Link";
+import { Link } from "../../models/Link";
 import { useEffect, useState } from "react";
-import { getLinks } from "../services/LinkService";
+import { getLinks } from "../../services/LinkService";
 import { toast } from "react-toastify";
 
 const DashboardSpace = () => {
@@ -42,28 +42,32 @@ const DashboardSpace = () => {
           <h1 className="profile-name">@{currentUser}</h1>
         </div>
         <div className="dashboard-body-space-link-items">
-          {isLoading && <p>Loading links...</p>}
-          {error && <p>Error: {error}</p>}
+          {isLoading && <p className="notifications">Loading links...</p>}
+          {error && <p className="notifications">Error: {error}</p>}
           {!isLoading && !error && links.length === 0 && (
-            <p>Oops! Looks like you haven't added any links yet.</p>
+            <p className="notifications">
+              Oops! Looks like you haven't added any links yet.
+            </p>
           )}
           {!isLoading &&
             !error &&
-            links.map((link) => (
-              <div key={link.id} className="dashboard-space-link-item">
-                <div className="dashboard-space-link-item-content">
-                  <div className="dashboard-space-link-item-info">
-                    <a
-                      href={link.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {link.title}
-                    </a>
+            links
+              .filter((link) => link.isActive)
+              .map((link) => (
+                <div key={link.id} className="dashboard-space-link-item">
+                  <div className="dashboard-space-link-item-content">
+                    <div className="dashboard-space-link-item-info">
+                      <a
+                        href={link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {link.title}
+                      </a>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
         </div>
       </div>
       <div className="dashboard-body-space-link">

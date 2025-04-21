@@ -46,3 +46,18 @@ export const deleteLink = async (linkId: number): Promise<void> => {
     throw error;
   }
 };
+
+export const updateLink = async (linkId: number, link: Link): Promise<Link> => {
+  try {
+    const response = await axiosInstance.put(`${API_URL}/put/${linkId}`, link, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    return response.data;
+  } catch (error) {
+    console.error("Error updating link:", error);
+    throw error;
+  }
+};

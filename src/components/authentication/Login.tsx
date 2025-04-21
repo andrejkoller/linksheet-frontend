@@ -1,9 +1,9 @@
 import { Button, Input, Spinner } from "@chakra-ui/react";
-import { login } from "../services/AuthService";
+import { login } from "../../services/AuthService";
 import { toast } from "react-toastify";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { PasswordInput } from "./ui/password-input";
+import { PasswordInput } from "./password-input";
 
 const Login = () => {
   const [username, setUsername] = useState("");
