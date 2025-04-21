@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 
 const DashboardSpace = () => {
   const [links, setLinks] = useState<Link[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   const currentUser = localStorage.getItem("user") || "Guest";
@@ -25,7 +25,7 @@ const DashboardSpace = () => {
         console.error("Error fetching links:", err);
         toast.error("Failed to load links. Please try again later.");
       } finally {
-        setLoading(false);
+        setIsLoading(false);
       }
     };
 
@@ -42,12 +42,12 @@ const DashboardSpace = () => {
           <h1 className="profile-name">@{currentUser}</h1>
         </div>
         <div className="dashboard-body-space-link-items">
-          {loading && <p>Loading links...</p>}
+          {isLoading && <p>Loading links...</p>}
           {error && <p>Error: {error}</p>}
-          {!loading && !error && links.length === 0 && (
+          {!isLoading && !error && links.length === 0 && (
             <p>Oops! Looks like you haven't added any links yet.</p>
           )}
-          {!loading &&
+          {!isLoading &&
             !error &&
             links.map((link) => (
               <div key={link.id} className="dashboard-space-link-item">

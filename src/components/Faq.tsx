@@ -8,12 +8,13 @@ import {
   AccordionItemIndicator,
   AccordionItemTrigger,
   AccordionRoot,
+  Spinner,
   Text,
 } from "@chakra-ui/react";
 
 const Faq = () => {
   const [faqs, setFaqs] = useState<Faq[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
@@ -29,7 +30,7 @@ const Faq = () => {
         }
         console.error("Error fetching FAQs:", err);
       } finally {
-        setLoading(false);
+        setIsLoading(false);
       }
     };
 
@@ -44,12 +45,20 @@ const Faq = () => {
         </div>
         <div className="faq-list">
           <AccordionRoot collapsible>
-            {loading && <p>Loading FAQs...</p>}
+            {isLoading && (
+              <div className="loading-screen">
+                <Spinner
+                  className="loading-spinner"
+                  size="lg"
+                  color="pink.500"
+                ></Spinner>
+              </div>
+            )}
             {error && <p>Error: {error}</p>}
-            {!loading && !error && faqs.length === 0 && (
+            {!isLoading && !error && faqs.length === 0 && (
               <p>No FAQs available.</p>
             )}
-            {!loading &&
+            {!isLoading &&
               !error &&
               faqs.map((faq) => (
                 <AccordionItem

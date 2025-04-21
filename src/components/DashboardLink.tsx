@@ -4,6 +4,7 @@ import {
   Dialog,
   Input,
   Portal,
+  Spinner,
   Switch,
   useDisclosure,
 } from "@chakra-ui/react";
@@ -14,7 +15,7 @@ import { toast } from "react-toastify";
 
 const DashboardLink = () => {
   const [links, setLinks] = useState<Link[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const { open, onOpen, onClose } = useDisclosure();
   const [formData, setFormData] = useState({
@@ -39,7 +40,7 @@ const DashboardLink = () => {
         console.error("Error fetching links:", err);
         toast.error("Failed to load links. Please try again later.");
       } finally {
-        setLoading(false);
+        setIsLoading(false);
       }
     };
 
@@ -108,12 +109,20 @@ const DashboardLink = () => {
           </div>
         </div>
         <div className="dashboard-link-list">
-          {loading && <p>Loading links...</p>}
+          {isLoading && (
+            <div className="loading-screen">
+              <Spinner
+                className="loading-spinner"
+                size="lg"
+                color="purple"
+              ></Spinner>
+            </div>
+          )}
           {error && <p>Error: {error}</p>}
-          {!loading && !error && links.length === 0 && (
+          {!isLoading && !error && links.length === 0 && (
             <p>Oops! Looks like you haven't added any links yet.</p>
           )}
-          {!loading &&
+          {!isLoading &&
             !error &&
             links.map((link) => (
               <div key={link.id} className="dashboard-link-item">
