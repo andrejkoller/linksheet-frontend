@@ -80,10 +80,29 @@ const Username = () => {
           </h1>
         </div>
         <div className="username-links">
-          {loading && <p>Loading links...</p>}
-          {error && <p>Error: {error}</p>}
+          {loading && (
+            <p
+              className="notifications"
+              style={{ color: linkSpace?.linkPageFontColor }}
+            >
+              Loading links...
+            </p>
+          )}
+          {error && (
+            <p
+              className="notifications"
+              style={{ color: linkSpace?.linkPageFontColor }}
+            >
+              Error: {error}
+            </p>
+          )}
           {!loading && !error && links.length === 0 && (
-            <p>Oops! Looks like you haven't added any links yet.</p>
+            <p
+              className="notifications"
+              style={{ color: linkSpace?.linkPageFontColor }}
+            >
+              Oops! Looks like you haven't added any links yet.
+            </p>
           )}
           {!loading &&
             !error &&
@@ -92,7 +111,17 @@ const Username = () => {
                 key={link.id}
                 className="username-link-item"
                 style={{
-                  border: `2px solid ${linkSpace?.linkButtonColor}`,
+                  borderRadius:
+                    linkSpace?.linkBorderRadius === "NotRounded"
+                      ? "0px"
+                      : linkSpace?.linkBorderRadius === "SlightlyRounded"
+                      ? "8px"
+                      : linkSpace?.linkBorderRadius === "Rounded"
+                      ? "999px"
+                      : "0px",
+                  borderWidth: "1px",
+                  borderStyle: "solid",
+                  borderColor: linkSpace?.linkButtonColor,
                   color:
                     hoveredLinkId === link.id
                       ? linkSpace?.linkPageBackgroundColor

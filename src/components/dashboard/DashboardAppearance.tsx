@@ -13,7 +13,7 @@ import {
   updateLinkSpace,
 } from "../../services/LinkSpaceService";
 import { toast } from "react-toastify";
-import { LinkSpace } from "../../models/LinkSpace";
+import { LinkBorderRadiusType, LinkSpace } from "../../models/LinkSpace";
 
 const DashboardAppearance = () => {
   const [linkSpace, setLinkSpace] = useState<LinkSpace | null>(null);
@@ -22,6 +22,7 @@ const DashboardAppearance = () => {
     buttonColor: "#000000",
     buttonFontColor: "#ffffff",
     fontColor: "#000000",
+    borderRadiusType: LinkBorderRadiusType.NotRounded,
   });
 
   useEffect(() => {
@@ -31,6 +32,7 @@ const DashboardAppearance = () => {
         buttonColor: linkSpace.linkButtonColor,
         buttonFontColor: linkSpace.linkButtonFontColor,
         fontColor: linkSpace.linkPageFontColor,
+        borderRadiusType: linkSpace.linkBorderRadius,
       });
     }
   }, [linkSpace]);
@@ -46,9 +48,9 @@ const DashboardAppearance = () => {
             buttonColor: response.linkButtonColor,
             buttonFontColor: response.linkButtonFontColor,
             fontColor: response.linkPageFontColor,
+            borderRadiusType: response.linkBorderRadius,
           });
         }
-        console.log("Link space fetched:", response);
       } catch (error) {
         if (error instanceof Error) {
           toast.error("Error: " + error.message);
@@ -67,6 +69,14 @@ const DashboardAppearance = () => {
       [name]: value,
     }));
   };
+
+  const handleBorderRadiusChange = (type: LinkBorderRadiusType) => {
+    setFormData((prevState) => ({
+      ...prevState,
+      borderRadiusType: type,
+    }));
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -74,7 +84,8 @@ const DashboardAppearance = () => {
       formData.backgroundColor ||
       formData.buttonColor ||
       formData.buttonFontColor ||
-      formData.fontColor
+      formData.fontColor ||
+      formData.borderRadiusType
     ) {
       const linkSpace: LinkSpace = {
         id: 0,
@@ -82,6 +93,7 @@ const DashboardAppearance = () => {
         linkButtonColor: formData.buttonColor,
         linkButtonFontColor: formData.buttonFontColor,
         linkPageFontColor: formData.fontColor,
+        linkBorderRadius: formData.borderRadiusType,
       };
 
       try {
@@ -119,101 +131,24 @@ const DashboardAppearance = () => {
             typeface and more.
           </p>
           <form onSubmit={handleSubmit}>
-            <div className="appearance-settings">
+            <div className="appearance-setting">
               <label className="appearance-setting-label">Background</label>
               <Card.Root className="appearance-setting-card">
                 <Card.Body className="appearance-setting-body">
-                  <div className="appearance-button-color">
-                    <ColorPicker.Root
-                      value={parseColor(formData.backgroundColor)}
-                      onValueChange={(value) =>
-                        handleColorChange(
-                          "backgroundColor",
-                          value.valueAsString
-                        )
-                      }
-                      maxW="200px"
-                    >
-                      <ColorPicker.HiddenInput />
-                      <ColorPicker.Label>Color</ColorPicker.Label>
-                      <ColorPicker.Control>
-                        <ColorPicker.Input />
-                        <ColorPicker.Trigger />
-                      </ColorPicker.Control>
-                      <Portal>
-                        <ColorPicker.Positioner>
-                          <ColorPicker.Content>
-                            <ColorPicker.Area />
-                            <HStack>
-                              <ColorPicker.EyeDropper
-                                size="xl"
-                                variant="solid"
-                              />
-                              <ColorPicker.Sliders />
-                            </HStack>
-                          </ColorPicker.Content>
-                        </ColorPicker.Positioner>
-                      </Portal>
-                    </ColorPicker.Root>
-                  </div>
-                </Card.Body>
-                <Card.Footer className="dashboard-appearance-footer">
-                  <Button
-                    className="dashboard-appearance-edit-button"
-                    variant={"solid"}
-                    type="submit"
-                  >
-                    Save
-                  </Button>
-                </Card.Footer>
-              </Card.Root>
-            </div>
-            <div className="appearance-settings">
-              <label className="appearance-setting-label">Buttons</label>
-              <div className="button-color">
-                <Card.Root className="appearance-setting-card">
-                  <Card.Body className="appearance-setting-body">
-                    <div className="appearance-background-color">
+                  <div className="appearance-background-color">
+                    <div className="appearance-button-color">
                       <ColorPicker.Root
-                        value={parseColor(formData.buttonColor)}
-                        onValueChange={(value) =>
-                          handleColorChange("buttonColor", value.valueAsString)
-                        }
-                        maxW="200px"
-                      >
-                        <ColorPicker.HiddenInput />
-                        <ColorPicker.Label>Button color</ColorPicker.Label>
-                        <ColorPicker.Control>
-                          <ColorPicker.Input />
-                          <ColorPicker.Trigger />
-                        </ColorPicker.Control>
-                        <Portal>
-                          <ColorPicker.Positioner>
-                            <ColorPicker.Content>
-                              <ColorPicker.Area />
-                              <HStack>
-                                <ColorPicker.EyeDropper
-                                  size="xl"
-                                  variant="solid"
-                                />
-                                <ColorPicker.Sliders />
-                              </HStack>
-                            </ColorPicker.Content>
-                          </ColorPicker.Positioner>
-                        </Portal>
-                      </ColorPicker.Root>
-                      <ColorPicker.Root
-                        value={parseColor(formData.buttonFontColor)}
+                        value={parseColor(formData.backgroundColor)}
                         onValueChange={(value) =>
                           handleColorChange(
-                            "buttonFontColor",
+                            "backgroundColor",
                             value.valueAsString
                           )
                         }
                         maxW="200px"
                       >
                         <ColorPicker.HiddenInput />
-                        <ColorPicker.Label>Button font color</ColorPicker.Label>
+                        <ColorPicker.Label>Color</ColorPicker.Label>
                         <ColorPicker.Control>
                           <ColorPicker.Input />
                           <ColorPicker.Trigger />
@@ -234,63 +169,184 @@ const DashboardAppearance = () => {
                         </Portal>
                       </ColorPicker.Root>
                     </div>
+                    <div className="appearance-button-color">
+                      <Button
+                        className="dashboard-appearance-edit-button"
+                        variant={"solid"}
+                        type="submit"
+                      >
+                        Save
+                      </Button>
+                    </div>
+                  </div>
+                </Card.Body>
+              </Card.Root>
+            </div>
+            <div className="appearance-setting">
+              <label className="appearance-setting-label">Buttons</label>
+              <div className="button-color">
+                <Card.Root className="appearance-setting-card">
+                  <Card.Body className="appearance-setting-body">
+                    <div className="appearance-button-color">
+                      <div className="appearance-button-type-wrapper">
+                        <label className="appearance-button-color-label">
+                          Button type
+                        </label>
+                        <div className="appearance-button-type-grid">
+                          {Object.values(LinkBorderRadiusType).map((type) => (
+                            <Button
+                              key={type}
+                              variant={"outline"}
+                              className="dashboard-appearance-button"
+                              onClick={() => handleBorderRadiusChange(type)}
+                              style={{
+                                backgroundColor:
+                                  formData.borderRadiusType === type
+                                    ? "#000000"
+                                    : "#ffffff",
+                                color:
+                                  formData.borderRadiusType === type
+                                    ? "#ffffff"
+                                    : "#000000",
+                              }}
+                            >
+                              {type.charAt(0).toUpperCase() + type.slice(1)}
+                            </Button>
+                          ))}
+                        </div>
+                      </div>
+                      <div className="appearance-button-color-wrapper">
+                        <div className="appearance-button-c-picker-wrapper">
+                          <div>
+                            <ColorPicker.Root
+                              value={parseColor(formData.buttonColor)}
+                              onValueChange={(value) =>
+                                handleColorChange(
+                                  "buttonColor",
+                                  value.valueAsString
+                                )
+                              }
+                              maxW="200px"
+                            >
+                              <ColorPicker.HiddenInput />
+                              <ColorPicker.Label>
+                                Button color
+                              </ColorPicker.Label>
+                              <ColorPicker.Control>
+                                <ColorPicker.Input />
+                                <ColorPicker.Trigger />
+                              </ColorPicker.Control>
+                              <Portal>
+                                <ColorPicker.Positioner>
+                                  <ColorPicker.Content>
+                                    <ColorPicker.Area />
+                                    <HStack>
+                                      <ColorPicker.EyeDropper
+                                        size="xl"
+                                        variant="solid"
+                                      />
+                                      <ColorPicker.Sliders />
+                                    </HStack>
+                                  </ColorPicker.Content>
+                                </ColorPicker.Positioner>
+                              </Portal>
+                            </ColorPicker.Root>
+                            <ColorPicker.Root
+                              value={parseColor(formData.buttonFontColor)}
+                              onValueChange={(value) =>
+                                handleColorChange(
+                                  "buttonFontColor",
+                                  value.valueAsString
+                                )
+                              }
+                              maxW="200px"
+                            >
+                              <ColorPicker.HiddenInput />
+                              <ColorPicker.Label>
+                                Button font color
+                              </ColorPicker.Label>
+                              <ColorPicker.Control>
+                                <ColorPicker.Input />
+                                <ColorPicker.Trigger />
+                              </ColorPicker.Control>
+                              <Portal>
+                                <ColorPicker.Positioner>
+                                  <ColorPicker.Content>
+                                    <ColorPicker.Area />
+                                    <HStack>
+                                      <ColorPicker.EyeDropper
+                                        size="xl"
+                                        variant="solid"
+                                      />
+                                      <ColorPicker.Sliders />
+                                    </HStack>
+                                  </ColorPicker.Content>
+                                </ColorPicker.Positioner>
+                              </Portal>
+                            </ColorPicker.Root>
+                          </div>
+                          <div className="appearance-button">
+                            <Button
+                              className="dashboard-appearance-edit-button"
+                              variant={"solid"}
+                              type="submit"
+                            >
+                              Save
+                            </Button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </Card.Body>
-                  <Card.Footer className="dashboard-appearance-footer">
-                    <Button
-                      className="dashboard-appearance-edit-button"
-                      variant={"solid"}
-                      type="submit"
-                    >
-                      Save
-                    </Button>
-                  </Card.Footer>
                 </Card.Root>
               </div>
             </div>
-            <div className="appearance-settings">
+            <div className="appearance-setting">
               <label className="appearance-setting-label">Fonts</label>
               <Card.Root className="appearance-setting-card">
                 <Card.Body className="appearance-setting-body">
-                  <div className="appearance-background-color">
-                    <ColorPicker.Root
-                      value={parseColor(formData.fontColor)}
-                      onValueChange={(value) =>
-                        handleColorChange("fontColor", value.valueAsString)
-                      }
-                      maxW="200px"
-                    >
-                      <ColorPicker.HiddenInput />
-                      <ColorPicker.Label>Color</ColorPicker.Label>
-                      <ColorPicker.Control>
-                        <ColorPicker.Input />
-                        <ColorPicker.Trigger />
-                      </ColorPicker.Control>
-                      <Portal>
-                        <ColorPicker.Positioner>
-                          <ColorPicker.Content>
-                            <ColorPicker.Area />
-                            <HStack>
-                              <ColorPicker.EyeDropper
-                                size="xl"
-                                variant="solid"
-                              />
-                              <ColorPicker.Sliders />
-                            </HStack>
-                          </ColorPicker.Content>
-                        </ColorPicker.Positioner>
-                      </Portal>
-                    </ColorPicker.Root>
+                  <div className="appearance-font-color">
+                    <div className="appearance-button-color">
+                      <ColorPicker.Root
+                        value={parseColor(formData.fontColor)}
+                        onValueChange={(value) =>
+                          handleColorChange("fontColor", value.valueAsString)
+                        }
+                        maxW="200px"
+                      >
+                        <ColorPicker.HiddenInput />
+                        <ColorPicker.Label>Color</ColorPicker.Label>
+                        <ColorPicker.Control>
+                          <ColorPicker.Input />
+                          <ColorPicker.Trigger />
+                        </ColorPicker.Control>
+                        <Portal>
+                          <ColorPicker.Positioner>
+                            <ColorPicker.Content>
+                              <ColorPicker.Area />
+                              <HStack>
+                                <ColorPicker.EyeDropper
+                                  size="xl"
+                                  variant="solid"
+                                />
+                                <ColorPicker.Sliders />
+                              </HStack>
+                            </ColorPicker.Content>
+                          </ColorPicker.Positioner>
+                        </Portal>
+                      </ColorPicker.Root>
+                    </div>
+                    <div className="appearance-button-color">
+                      <Button
+                        className="dashboard-appearance-edit-button"
+                        variant={"solid"}
+                        type="submit"
+                      >
+                        Save
+                      </Button>
+                    </div>
                   </div>
                 </Card.Body>
-                <Card.Footer className="dashboard-appearance-footer">
-                  <Button
-                    className="dashboard-appearance-edit-button"
-                    variant={"solid"}
-                    type="submit"
-                  >
-                    Save
-                  </Button>
-                </Card.Footer>
               </Card.Root>
             </div>
           </form>

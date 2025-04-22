@@ -78,9 +78,19 @@ const DashboardSpace = () => {
               Loading links...
             </p>
           )}
-          {error && <p className="notifications">Error: {error}</p>}
+          {error && (
+            <p
+              className="notifications"
+              style={{ color: linkSpace?.linkPageFontColor }}
+            >
+              Error: {error}
+            </p>
+          )}
           {!isLoading && !error && links.length === 0 && (
-            <p className="notifications">
+            <p
+              className="notifications"
+              style={{ color: linkSpace?.linkPageFontColor }}
+            >
               Oops! Looks like you haven't added any links yet.
             </p>
           )}
@@ -93,7 +103,17 @@ const DashboardSpace = () => {
                   key={link.id}
                   className="dashboard-space-link-item"
                   style={{
-                    border: `2px solid ${linkSpace?.linkButtonColor}`,
+                    borderRadius:
+                      linkSpace?.linkBorderRadius === "NotRounded"
+                        ? "0px"
+                        : linkSpace?.linkBorderRadius === "SlightlyRounded"
+                        ? "8px"
+                        : linkSpace?.linkBorderRadius === "Rounded"
+                        ? "999px"
+                        : "0px",
+                    borderWidth: "1px",
+                    borderStyle: "solid",
+                    borderColor: linkSpace?.linkButtonColor,
                     color:
                       hoveredLinkId === link.id
                         ? linkSpace?.linkPageBackgroundColor

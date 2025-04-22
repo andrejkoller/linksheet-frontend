@@ -125,9 +125,11 @@ const DashboardLink = () => {
                 ></Spinner>
               </div>
             )}
-            {error && <p>Error: {error}</p>}
+            {error && <p className="notifications">Error: {error}</p>}
             {!isLoading && !error && links.length === 0 && (
-              <p>Oops! Looks like you haven't added any links yet.</p>
+              <p className="notifications">
+                Oops! Looks like you haven't added any links yet.
+              </p>
             )}
             {!isLoading &&
               !error &&

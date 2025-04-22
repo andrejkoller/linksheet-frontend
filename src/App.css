@@ -1842,7 +1842,7 @@
   .dashboard-appearance-body
   label.appearance-setting-label {
   display: flex;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   font-family: "Poppins-Semibold";
   font-size: 1em;
   color: #000000;
@@ -1851,7 +1851,72 @@
 .dashboard-appearance-container
   .dashboard-appearance-content
   .dashboard-appearance-body
-  .appearance-settings
+  .appearance-setting
+  .appearance-button-color
+  .appearance-button-type-wrapper
+  label.appearance-button-color-label {
+  display: flex;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.dashboard-appearance-container
+  .dashboard-appearance-content
+  .dashboard-appearance-body
+  .appearance-setting
+  .appearance-button-color
+  .appearance-button-type-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}
+
+.dashboard-appearance-container
+  .dashboard-appearance-content
+  .dashboard-appearance-body
+  .appearance-setting
+  .appearance-button-color
+  .appearance-button-type-grid
+  button:nth-child(1) {
+  width: 100%;
+  padding: 20px;
+  border-radius: 0px;
+  border: 1px solid #000000;
+  background-color: transparent;
+}
+
+.dashboard-appearance-container
+  .dashboard-appearance-content
+  .dashboard-appearance-body
+  .appearance-setting
+  .appearance-button-color
+  .appearance-button-type-grid
+  button:nth-child(2) {
+  width: 100%;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #000000;
+  background-color: transparent;
+}
+
+.dashboard-appearance-container
+  .dashboard-appearance-content
+  .dashboard-appearance-body
+  .appearance-setting
+  .appearance-button-color
+  .appearance-button-type-grid
+  button:nth-child(3) {
+  width: 100%;
+  padding: 20px;
+  border-radius: 999px;
+  border: 1px solid #000000;
+  background-color: transparent;
+}
+
+.dashboard-appearance-container
+  .dashboard-appearance-content
+  .dashboard-appearance-body
+  .appearance-setting
   input {
   width: 100%;
   padding: 25px;
@@ -1865,7 +1930,7 @@
 .dashboard-appearance-container
   .dashboard-appearance-content
   .dashboard-appearance-body
-  .appearance-settings
+  .appearance-setting
   input:focus {
   outline: none;
   box-shadow: 0 0 0 2px #d2e823;
@@ -1874,7 +1939,7 @@
 .dashboard-appearance-container
   .dashboard-appearance-content
   .dashboard-appearance-body
-  .appearance-settings
+  .appearance-setting
   .dashboard-appearance-edit-button {
   background-color: #4f2173;
   border-radius: 999px;
@@ -1887,7 +1952,7 @@
 .dashboard-appearance-container
   .dashboard-appearance-content
   .dashboard-appearance-body
-  .appearance-settings
+  .appearance-setting
   .dashboard-appearance-edit-button:hover {
   background-color: #5a2b8c;
   transition: background-color 0.3s ease;
@@ -1896,9 +1961,49 @@
 .dashboard-appearance-container
   .dashboard-appearance-content
   .dashboard-appearance-body
-  .appearance-settings
+  .appearance-setting
   .appearance-background-color {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
   gap: 20px;
+}
+
+.dashboard-appearance-container
+  .dashboard-appearance-content
+  .dashboard-appearance-body
+  .appearance-setting
+  .appearance-button-c-picker-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.dashboard-appearance-container
+  .dashboard-appearance-content
+  .dashboard-appearance-body
+  .appearance-setting
+  .appearance-button-color {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.dashboard-appearance-container
+  .dashboard-appearance-content
+  .dashboard-appearance-body
+  .appearance-setting
+  .appearance-font-color {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 20px;
+}
+
+.appearance-setting {
+  margin-bottom: 20px;
 }

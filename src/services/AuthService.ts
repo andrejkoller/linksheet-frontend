@@ -1,4 +1,5 @@
 import { User, UserResponse } from "../models/User";
+import axiosInstance from "./axiosInstance";
 
 const API_URL = "https://localhost:7187/api/auth";
 
@@ -8,36 +9,50 @@ export const register = async (
   password: string,
   confirmPassword: string
 ): Promise<User> => {
-  const response = await fetch(`${API_URL}/register`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ email, username, password, confirmPassword }),
-  });
+  try {
+    const response = await axiosInstance.post(
+      `${API_URL}/register`,
+      {
+        email,
+        username,
+        password,
+        confirmPassword,
+      },
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
 
-  const data = await response.json();
-  if (!response.ok) {
-    throw new Error(data.message || "Failed to register");
+    return response.data;
+  } catch (error) {
+    console.error("Error registering user:", error);
+    throw error;
   }
-  return data;
 };
 
 export const login = async (
   username: string,
   password: string
 ): Promise<UserResponse> => {
-  const response = await fetch(`${API_URL}/login`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ username, password }),
-  });
+  try {
+    const response = await axiosInstance.post(
+      `${API_URL}/login`,
+      {
+        username,
+        password,
+      },
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
 
-  const data = await response.json();
-  if (!response.ok) {
-    throw new Error(data.message || "Failed to login");
+    return response.data;
+  } catch (error) {
+    console.error("Error logging in user:", error);
+    throw error;
   }
-  return data;
 };
