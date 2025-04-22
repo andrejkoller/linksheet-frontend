@@ -2,7 +2,7 @@ import { Button, Spinner, Switch, useDisclosure } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { Link } from "../../models/Link";
 import {
-  getLinks,
+  getCurrentUserLinks,
   deleteLink,
   updateLinkVisibility,
 } from "../../services/LinkService";
@@ -21,7 +21,7 @@ const DashboardLink = () => {
   useEffect(() => {
     const fetchLinks = async () => {
       try {
-        const data = await getLinks();
+        const data = await getCurrentUserLinks();
         setLinks(data);
       } catch (err) {
         if (err instanceof Error) {

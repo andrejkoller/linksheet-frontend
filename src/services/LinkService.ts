@@ -19,6 +19,23 @@ export const getLinks = async (): Promise<Link[]> => {
   }
 };
 
+export const getCurrentUserLinks = async (): Promise<Link[]> => {
+  try {
+    const response = await axiosInstance.get(`${API_URL}/currentUser`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    });
+
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching current user links:", error);
+    throw error;
+  }
+};
+
 export const createLink = async (link: Link): Promise<Link> => {
   try {
     const response = await axiosInstance.post(`${API_URL}/post`, link, {

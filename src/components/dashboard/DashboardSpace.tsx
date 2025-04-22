@@ -1,20 +1,39 @@
 import { NavLink } from "react-router-dom";
 import { Link } from "../../models/Link";
 import { useEffect, useState } from "react";
-import { getLinks } from "../../services/LinkService";
+import { getCurrentUserLinks } from "../../services/LinkService";
+import { getCurrentUserLinkSpace } from "../../services/LinkSpaceService";
 import { toast } from "react-toastify";
+import { LinkSpace } from "../../models/LinkSpace";
 
 const DashboardSpace = () => {
   const [links, setLinks] = useState<Link[]>([]);
+  const [linkSpace, setLinkSpace] = useState<LinkSpace>({} as LinkSpace);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [hoveredLinkId, setHoveredLinkId] = useState<number | null>(null);
 
   const currentUser = localStorage.getItem("user") || "Guest";
 
   useEffect(() => {
+    const fetchLinkSpace = async () => {
+      try {
+        const data = await getCurrentUserLinkSpace();
+        setLinkSpace(data);
+      } catch (err) {
+        if (err instanceof Error) {
+          setError(err.message);
+        } else {
+          setError(String(err));
+        }
+        console.error("Error fetching link space:", err);
+        toast.error("Failed to load link space. Please try again later.");
+      }
+    };
+
     const fetchLinks = async () => {
       try {
-        const data = await getLinks();
+        const data = await getCurrentUserLinks();
         setLinks(data);
       } catch (err) {
         if (err instanceof Error) {
@@ -29,20 +48,36 @@ const DashboardSpace = () => {
       }
     };
 
+    fetchLinkSpace();
     fetchLinks();
   }, []);
 
   return (
     <div className="dashboard-body-space-container">
-      <div className="dashboard-body-space-content">
+      <div
+        className="dashboard-body-space-content"
+        style={{ backgroundColor: linkSpace?.linkPageBackgroundColor }}
+      >
         <div className="dashboard-body-space-header">
           <div className="profile-banner">
             {currentUser.substring(0, 1).toUpperCase()}
           </div>
-          <h1 className="profile-name">@{currentUser}</h1>
+          <h1
+            className="profile-name"
+            style={{ color: linkSpace?.linkPageFontColor }}
+          >
+            @{currentUser}
+          </h1>
         </div>
         <div className="dashboard-body-space-link-items">
-          {isLoading && <p className="notifications">Loading links...</p>}
+          {isLoading && (
+            <p
+              className="notifications"
+              style={{ color: linkSpace?.linkPageFontColor }}
+            >
+              Loading links...
+            </p>
+          )}
           {error && <p className="notifications">Error: {error}</p>}
           {!isLoading && !error && links.length === 0 && (
             <p className="notifications">
@@ -54,7 +89,23 @@ const DashboardSpace = () => {
             links
               .filter((link) => link.isActive)
               .map((link) => (
-                <div key={link.id} className="dashboard-space-link-item">
+                <div
+                  key={link.id}
+                  className="dashboard-space-link-item"
+                  style={{
+                    border: `2px solid ${linkSpace?.linkButtonColor}`,
+                    color:
+                      hoveredLinkId === link.id
+                        ? linkSpace?.linkPageBackgroundColor
+                        : linkSpace?.linkButtonFontColor,
+                    backgroundColor:
+                      hoveredLinkId === link.id
+                        ? linkSpace?.linkButtonColor
+                        : "transparent",
+                  }}
+                  onMouseEnter={() => setHoveredLinkId(link.id)}
+                  onMouseLeave={() => setHoveredLinkId(null)}
+                >
                   <div className="dashboard-space-link-item-content">
                     <div className="dashboard-space-link-item-info">
                       <a
