@@ -106,39 +106,41 @@ const Username = () => {
           )}
           {!loading &&
             !error &&
-            links.map((link) => (
-              <div
-                key={link.id}
-                className="username-link-item"
-                style={{
-                  borderRadius:
-                    linkSpace?.linkBorderRadius === "NotRounded"
-                      ? "0px"
-                      : linkSpace?.linkBorderRadius === "SlightlyRounded"
-                      ? "8px"
-                      : linkSpace?.linkBorderRadius === "Rounded"
-                      ? "999px"
-                      : "0px",
-                  borderWidth: "1px",
-                  borderStyle: "solid",
-                  borderColor: linkSpace?.linkButtonColor,
-                  color:
-                    hoveredLinkId === link.id
-                      ? linkSpace?.linkPageBackgroundColor
-                      : linkSpace?.linkButtonFontColor,
-                  backgroundColor:
-                    hoveredLinkId === link.id
-                      ? linkSpace?.linkButtonColor
-                      : "transparent",
-                }}
-                onMouseEnter={() => setHoveredLinkId(link.id)}
-                onMouseLeave={() => setHoveredLinkId(null)}
-              >
-                <a href={link.url} target="_blank" rel="noopener noreferrer">
-                  {link.title}
-                </a>
-              </div>
-            ))}
+            links
+              .filter((link) => link.isActive)
+              .map((link) => (
+                <div
+                  key={link.id}
+                  className="username-link-item"
+                  style={{
+                    borderRadius:
+                      linkSpace?.linkBorderRadius === "NotRounded"
+                        ? "0px"
+                        : linkSpace?.linkBorderRadius === "SlightlyRounded"
+                        ? "8px"
+                        : linkSpace?.linkBorderRadius === "Rounded"
+                        ? "999px"
+                        : "0px",
+                    borderWidth: "1px",
+                    borderStyle: "solid",
+                    borderColor: linkSpace?.linkButtonColor,
+                    color:
+                      hoveredLinkId === link.id
+                        ? linkSpace?.linkPageBackgroundColor
+                        : linkSpace?.linkButtonFontColor,
+                    backgroundColor:
+                      hoveredLinkId === link.id
+                        ? linkSpace?.linkButtonColor
+                        : "transparent",
+                  }}
+                  onMouseEnter={() => setHoveredLinkId(link.id)}
+                  onMouseLeave={() => setHoveredLinkId(null)}
+                >
+                  <a href={link.url} target="_blank" rel="noopener noreferrer">
+                    {link.title}
+                  </a>
+                </div>
+              ))}
         </div>
         <div className="username-footer">
           <NavLink to={"/register"}>Join {currentUser} on Linksheet!</NavLink>

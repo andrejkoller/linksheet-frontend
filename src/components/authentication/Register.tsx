@@ -5,6 +5,8 @@ import { toast } from "react-toastify";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { PasswordInput } from "./password-input";
 
+const MIN_PASSWORD_LENGTH = 6;
+
 const Register = () => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -16,6 +18,7 @@ const Register = () => {
     password: "",
     confirmPassword: "",
   });
+
   const [isLoading, setIsLoading] = useState(false);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -29,6 +32,18 @@ const Register = () => {
     e.preventDefault();
     setIsLoading(true);
 
+    if (formData.password.length < MIN_PASSWORD_LENGTH) {
+      setIsLoading(false);
+      toast.error("Password must be at least 6 characters long!");
+      return;
+    }
+
+    if (formData.password !== formData.confirmPassword) {
+      setIsLoading(false);
+      toast.error("Passwords do not match!");
+      return;
+    }
+
     try {
       const data = await register(
         formData.email,
@@ -36,6 +51,7 @@ const Register = () => {
         formData.password,
         formData.confirmPassword
       );
+
       localStorage.setItem("token", data.token);
       localStorage.setItem("user", JSON.stringify(data.username));
       navigate("/login");
