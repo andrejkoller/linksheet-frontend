@@ -1,7 +1,23 @@
-import { Input } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
+import { Button, Input } from "@chakra-ui/react";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Footer = () => {
+  const [username, setUsername] = useState<string>("");
+
+  const navigate = useNavigate();
+
+  const handleClaimLinksheet = () => {
+    if (username) {
+      navigate("/register", {
+        state: { username },
+      });
+    } else {
+      toast.warn("Please enter a username");
+    }
+  };
+
   return (
     <div className="footer">
       <div className="footer-container">
@@ -13,10 +29,19 @@ const Footer = () => {
               </div>
               <div className="footer-content-item">
                 <div className="footer-content-item-input">
-                  <Input placeholder="linksheet/yourname" />
+                  <Input
+                    id="username"
+                    name="username"
+                    type="text"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                    placeholder="linksheet/yourname"
+                  />
                 </div>
                 <div className="footer-content-item-button">
-                  <Link to={"/register"}>Claim your Linksheet</Link>
+                  <Button variant={"solid"} onClick={handleClaimLinksheet}>
+                    Claim your Linksheet
+                  </Button>
                 </div>
               </div>
             </div>
@@ -40,7 +65,7 @@ const Footer = () => {
                   <h3>Support</h3>
                 </div>
                 <div>
-                  <Link to={"/"}>Contact Us</Link>
+                  <a href="mailto:andrejkoller@outlook.com">Contact Us</a>
                   <Link to={"/"}>Help Center</Link>
                   <Link to={"/"}>Status</Link>
                 </div>
@@ -62,18 +87,24 @@ const Footer = () => {
                 <Link to={"/register"}>Sign up free</Link>
               </div>
               <div>
-                <Link to={"/"}>
+                <a href="https://www.youtube.com/@AndrejKoller" target="_blank">
                   <i className="fa-brands fa-youtube"></i>
-                </Link>
-                <Link to={"/"}>
+                </a>
+                <a href="https://x.com/andrejkoller" target="_blank">
                   <i className="fa-brands fa-x-twitter"></i>
-                </Link>
-                <Link to={"/"}>
+                </a>
+                <a
+                  href="https://www.facebook.com/andrej.koller.18"
+                  target="_blank"
+                >
                   <i className="fa-brands fa-facebook"></i>
-                </Link>
-                <Link to={"/"}>
+                </a>
+                <a
+                  href="https://www.instagram.com/andrejkollerofficial"
+                  target="_blank"
+                >
                   <i className="fa-brands fa-instagram"></i>
-                </Link>
+                </a>
               </div>
             </div>
           </div>

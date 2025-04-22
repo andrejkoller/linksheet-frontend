@@ -2,22 +2,31 @@ import { Button, Input, Spinner } from "@chakra-ui/react";
 import { login } from "../../services/AuthService";
 import { toast } from "react-toastify";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { PasswordInput } from "./password-input";
 
 const Login = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [formData, setFormData] = useState({
+    username: "",
+    password: "",
+  });
   const [isLoading, setIsLoading] = useState(false);
 
   const navigate = useNavigate();
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }));
+  };
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
 
     try {
-      const data = await login(username, password);
+      const data = await login(formData.username, formData.password);
       localStorage.setItem("token", data.token);
       localStorage.setItem("user", data.user.username);
       navigate("/dashboard");
@@ -37,7 +46,9 @@ const Login = () => {
       <div className="login-container">
         <div className="login-content">
           <div className="login-title">
-            <h1>Linksheet</h1>
+            <Link to="/">
+              <h1>Linksheet</h1>
+            </Link>
             <p>Log in to your account!</p>
           </div>
           {isLoading ? (
@@ -57,10 +68,11 @@ const Login = () => {
                       type="text"
                       name="username"
                       id="username"
-                      value={username}
-                      onChange={(e) => setUsername(e.target.value)}
+                      value={formData.username}
+                      onChange={handleInputChange}
                       placeholder="Username"
                       required
+                      autoComplete="off"
                     />
                   </div>
                   <div className="login-form-item">
@@ -68,10 +80,11 @@ const Login = () => {
                       type="password"
                       name="password"
                       id="password"
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
+                      value={formData.password}
+                      onChange={handleInputChange}
                       placeholder="Password"
                       required
+                      autoComplete="off"
                     />
                   </div>
                   <div className="button-container">

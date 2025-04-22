@@ -1,9 +1,25 @@
-import { Input } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
+import { Button, Input } from "@chakra-ui/react";
 import Faq from "./Faq";
 import Footer from "./Footer";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Home = () => {
+  const [username, setUsername] = useState<string>("");
+
+  const navigate = useNavigate();
+
+  const handleClaimLinksheet = () => {
+    if (username) {
+      navigate("/register", {
+        state: { username },
+      });
+    } else {
+      toast.warn("Please enter a username");
+    }
+  };
+
   return (
     <div className="home">
       <div className="intro">
@@ -25,10 +41,19 @@ const Home = () => {
               </div>
               <div className="intro-content-item">
                 <div className="intro-content-item-input">
-                  <Input placeholder="linksheet/yourname"></Input>
+                  <Input
+                    id="username"
+                    name="username"
+                    type="text"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                    placeholder="linksheet/yourname"
+                  ></Input>
                 </div>
                 <div className="intro-content-item-button">
-                  <Link to={"/register"}>Claim your Linksheet</Link>
+                  <Button variant={"solid"} onClick={handleClaimLinksheet}>
+                    Claim your Linksheet
+                  </Button>
                 </div>
               </div>
             </div>

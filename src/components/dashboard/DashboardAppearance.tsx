@@ -26,7 +26,7 @@ const DashboardAppearance = () => {
               <Card.Body className="appearance-setting-body">
                 <div className="appearance-button-color">
                   <ColorPicker.Root
-                    defaultValue={parseColor("#eb5e41")}
+                    defaultValue={parseColor("#080808")}
                     maxW="200px"
                   >
                     <ColorPicker.HiddenInput />
@@ -67,7 +67,7 @@ const DashboardAppearance = () => {
                 <Card.Body className="appearance-setting-body">
                   <div className="appearance-background-color">
                     <ColorPicker.Root
-                      defaultValue={parseColor("#eb5e41")}
+                      defaultValue={parseColor("#EAD8C2")}
                       maxW="200px"
                     >
                       <ColorPicker.HiddenInput />
@@ -92,7 +92,7 @@ const DashboardAppearance = () => {
                       </Portal>
                     </ColorPicker.Root>
                     <ColorPicker.Root
-                      defaultValue={parseColor("#eb5e41")}
+                      defaultValue={parseColor("#EAD8C2")}
                       maxW="200px"
                     >
                       <ColorPicker.HiddenInput />
@@ -136,7 +136,7 @@ const DashboardAppearance = () => {
               <Card.Body className="appearance-setting-body">
                 <div className="appearance-background-color">
                   <ColorPicker.Root
-                    defaultValue={parseColor("#eb5e41")}
+                    defaultValue={parseColor("#EAD8C2")}
                     maxW="200px"
                   >
                     <ColorPicker.HiddenInput />

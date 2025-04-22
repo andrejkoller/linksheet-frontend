@@ -297,9 +297,10 @@
   .intro-container
   .intro-content
   .intro-content-left
-  .intro-content-item-button {
+  .intro-content-item-button
+  button {
   border-radius: 999px;
-  padding: 25px 50px;
+  padding: 35px 50px;
   background-color: #e9c0e9;
   color: #000000;
   cursor: pointer;
@@ -310,7 +311,8 @@
   .intro-container
   .intro-content
   .intro-content-left
-  .intro-content-item-button:hover {
+  .intro-content-item-button
+  button:hover {
   background-color: #d8a3d8;
   transition: background-color 0.3s ease;
 }
@@ -486,9 +488,10 @@
   .footer-container
   .footer-content
   .footer-content-top
-  .footer-content-item-button {
+  .footer-content-item-button
+  button {
   border-radius: 999px;
-  padding: 25px 50px;
+  padding: 35px 50px;
   background-color: #e9c0e9;
   color: #000000;
   cursor: pointer;
@@ -498,8 +501,9 @@
 .footer
   .footer-container
   .footer-content
-  .footer-content-left
-  .footer-content-item-button:hover {
+  .footer-content-top
+  .footer-content-item-button
+  button:hover {
   background-color: #d8a3d8;
   transition: background-color 0.3s ease;
 }
@@ -512,15 +516,6 @@
   a {
   text-decoration: none;
   color: inherit;
-}
-
-.footer
-  .footer-container
-  .footer-content
-  .footer-content-top
-  .footer-content-item-button:hover {
-  background-color: #d8a3d8;
-  transition: background-color 0.3s ease;
 }
 
 .footer .footer-container .footer-content .footer-content-bottom {

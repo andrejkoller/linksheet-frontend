@@ -2,24 +2,40 @@ import { Button, Input, Spinner } from "@chakra-ui/react";
 import { useState } from "react";
 import { register } from "../../services/AuthService";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { PasswordInput } from "./password-input";
 
 const Register = () => {
-  const [email, setEmail] = useState("");
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const { username } = (location.state as { username: string }) || {};
+  const [formData, setFormData] = useState({
+    email: "",
+    username: username || "",
+    password: "",
+    confirmPassword: "",
+  });
   const [isLoading, setIsLoading] = useState(false);
 
-  const navigate = useNavigate();
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }));
+  };
 
   const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
 
     try {
-      const data = await register(email, username, password, confirmPassword);
+      const data = await register(
+        formData.email,
+        formData.username,
+        formData.password,
+        formData.confirmPassword
+      );
       localStorage.setItem("token", data.token);
       localStorage.setItem("user", JSON.stringify(data.username));
       navigate("/login");
@@ -39,7 +55,9 @@ const Register = () => {
       <div className="register-container">
         <div className="register-content">
           <div className="register-title">
-            <h1>Join Linksheet</h1>
+            <Link to="/">
+              <h1>Join Linksheet</h1>
+            </Link>
             <p>Sign up to create your account!</p>
           </div>
           {isLoading ? (
@@ -59,8 +77,8 @@ const Register = () => {
                       type="email"
                       id="email"
                       name="email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
+                      value={formData.email}
+                      onChange={handleInputChange}
                       placeholder="Enter your email"
                       required
                     />
@@ -70,8 +88,8 @@ const Register = () => {
                       type="text"
                       id="username"
                       name="username"
-                      value={username}
-                      onChange={(e) => setUsername(e.target.value)}
+                      value={formData.username}
+                      onChange={handleInputChange}
                       placeholder="Enter your username"
                       required
                     />
@@ -81,8 +99,8 @@ const Register = () => {
                       type="password"
                       id="password"
                       name="password"
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
+                      value={formData.password}
+                      onChange={handleInputChange}
                       placeholder="Enter your password"
                       required
                     />
@@ -90,10 +108,10 @@ const Register = () => {
                   <div className="form-group">
                     <PasswordInput
                       type="password"
-                      id="confirm-password"
-                      name="confirm-password"
-                      value={confirmPassword}
-                      onChange={(e) => setConfirmPassword(e.target.value)}
+                      id="confirmPassword"
+                      name="confirmPassword"
+                      value={formData.confirmPassword}
+                      onChange={handleInputChange}
                       placeholder="Confirm your password"
                       required
                     />
