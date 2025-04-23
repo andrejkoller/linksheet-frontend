@@ -3,17 +3,42 @@ import { Link } from "../../models/Link";
 import { useEffect, useState } from "react";
 import { getCurrentUserLinks } from "../../services/LinkService";
 import { getCurrentUserLinkSpace } from "../../services/LinkSpaceService";
+import { getCurrentUser } from "../../services/UserService";
 import { toast } from "react-toastify";
 import { LinkSpace } from "../../models/LinkSpace";
+import { User } from "../../models/User";
 
 const DashboardSpace = () => {
+  const [currentUser, setCurrentUser] = useState<User | null>(null);
   const [links, setLinks] = useState<Link[]>([]);
   const [linkSpace, setLinkSpace] = useState<LinkSpace>({} as LinkSpace);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [hoveredLinkId, setHoveredLinkId] = useState<number | null>(null);
 
-  const currentUser = localStorage.getItem("user") || "Guest";
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const user = await getCurrentUser();
+        if (!user) {
+          toast.error("User not found. Please log in again.");
+          window.location.href = "/login";
+        } else {
+          setCurrentUser(user);
+        }
+      } catch (err) {
+        if (err instanceof Error) {
+          setError(err.message);
+        } else {
+          setError(String(err));
+        }
+        console.error("Error fetching current user:", err);
+        toast.error("Failed to load user. Please try again later.");
+      }
+    };
+
+    fetchUser();
+  }, []);
 
   useEffect(() => {
     const fetchLinkSpace = async () => {
@@ -60,14 +85,20 @@ const DashboardSpace = () => {
       >
         <div className="dashboard-body-space-header">
           <div className="profile-banner">
-            {currentUser.substring(0, 1).toUpperCase()}
+            {currentUser?.username.substring(0, 1).toUpperCase()}
           </div>
           <h1
             className="profile-name"
             style={{ color: linkSpace?.linkPageFontColor }}
           >
-            @{currentUser}
+            @{currentUser?.username}
           </h1>
+          <span
+            className="profile-description"
+            style={{ color: linkSpace?.linkPageFontColor }}
+          >
+            {currentUser?.description ? currentUser?.description : ""}
+          </span>
         </div>
         <div className="dashboard-body-space-link-items">
           {isLoading && (
@@ -143,7 +174,7 @@ const DashboardSpace = () => {
       </div>
       <div className="dashboard-body-space-link">
         <NavLink
-          to={"/dashboard/" + currentUser}
+          to={"/dashboard/" + currentUser?.username}
           target="_blank"
           rel="noopener noreferrer"
           className="dashboard-body-space-link-item"

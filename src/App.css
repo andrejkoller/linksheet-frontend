@@ -1363,6 +1363,17 @@
   h1 {
   font-family: "Poppins-Bold";
   font-size: 14px;
+  text-align: center;
+}
+
+.dashboard-body
+  .dashboard-body-space-container
+  .dashboard-body-space-content
+  .dashboard-body-space-header
+  span {
+  font-family: "Poppins-Regular";
+  font-size: 12px;
+  text-align: center;
 }
 
 .dashboard-body
@@ -1529,6 +1540,16 @@
   align-items: center;
   font-size: 1.15rem;
   font-family: "Poppins-Bold";
+  margin-bottom: 20px;
+}
+
+.username-container .username-content .username-header .description-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  font-family: "Poppins-Regular";
   margin-bottom: 20px;
 }
 
@@ -1708,9 +1729,18 @@
   .dashboard-account-info-body
   .dashboard-account-info-item {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   gap: 20px;
   width: 100%;
+}
+
+.dashboard-account-container
+  .dashboard-account-content
+  .dashboard-account-info-body
+  .dashboard-account-info-item
+  .dashboard-account-info-username-email-wrapper {
+  display: flex;
+  gap: 20px;
 }
 
 .dashboard-account-container

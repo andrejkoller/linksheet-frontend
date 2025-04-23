@@ -39,13 +39,20 @@ const DashboardAccount = () => {
         ...user,
         username: user.username,
         email: user.email,
+        description: user.description,
       };
       updateUser(user.id, updatedUser)
         .then(() => {
           setUser(updatedUser);
           toast.success("Profile updated successfully!");
-          toast.info("Please log in again to see the changes.");
-          navigate("/login");
+          if (
+            user.username !== updatedUser.username ||
+            user.email !== updatedUser.email ||
+            !user.description
+          ) {
+            toast.info("Please log in again with your new username.");
+            navigate("/login");
+          }
         })
         .catch((err) => {
           if (err instanceof Error) {
@@ -86,40 +93,64 @@ const DashboardAccount = () => {
                     <Card.Root>
                       <Card.Body className="dashboard-account-info-body">
                         <div className="dashboard-account-info-item">
-                          <Card.Description className="dashboard-account-info-name">
-                            <label className="dashboard-account-info-label">
-                              Username
-                            </label>
-                            <Input
-                              className="dashboard-account-info-username"
-                              variant={"outline"}
-                              type="text"
-                              id="username"
-                              name="username"
-                              placeholder="Enter your username"
-                              value={user.username}
-                              onChange={(e) =>
-                                setUser({ ...user, username: e.target.value })
-                              }
-                            />
-                          </Card.Description>
-                          <Card.Description className="dashboard-account-info-email">
-                            <label className="dashboard-account-info-label">
-                              Email
-                            </label>
-                            <Input
-                              className="dashboard-account-info-email"
-                              variant={"outline"}
-                              type="email"
-                              id="email"
-                              name="email"
-                              placeholder="Enter your email"
-                              value={user.email}
-                              onChange={(e) =>
-                                setUser({ ...user, email: e.target.value })
-                              }
-                            />
-                          </Card.Description>
+                          <div className="dashboard-account-info-username-email-wrapper">
+                            <Card.Description className="dashboard-account-info-name">
+                              <label className="dashboard-account-info-label">
+                                Username
+                              </label>
+                              <Input
+                                className="dashboard-account-info-username"
+                                variant={"outline"}
+                                type="text"
+                                id="username"
+                                name="username"
+                                placeholder="Enter your username"
+                                value={user.username}
+                                onChange={(e) =>
+                                  setUser({ ...user, username: e.target.value })
+                                }
+                              />
+                            </Card.Description>
+                            <Card.Description className="dashboard-account-info-email">
+                              <label className="dashboard-account-info-label">
+                                Email
+                              </label>
+                              <Input
+                                className="dashboard-account-info-email"
+                                variant={"outline"}
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="Enter your email"
+                                value={user.email}
+                                onChange={(e) =>
+                                  setUser({ ...user, email: e.target.value })
+                                }
+                              />
+                            </Card.Description>
+                          </div>
+                          <div className="dashboard-account-info-description-wrapper">
+                            <Card.Description className="dashboard-account-info-description">
+                              <label className="dashboard-account-info-label">
+                                Description
+                              </label>
+                              <Input
+                                className="dashboard-account-info-description"
+                                variant={"outline"}
+                                type="text"
+                                id="description"
+                                name="description"
+                                placeholder="Enter your description"
+                                value={user.description}
+                                onChange={(e) =>
+                                  setUser({
+                                    ...user,
+                                    description: e.target.value,
+                                  })
+                                }
+                              />
+                            </Card.Description>
+                          </div>
                         </div>
                         <Card.Footer className="dashboard-account-info-footer">
                           <Button

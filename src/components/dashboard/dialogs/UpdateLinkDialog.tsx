@@ -139,8 +139,8 @@ const UpdateLinkDialog = ({
               </Dialog.ActionTrigger>
               <Dialog.ActionTrigger asChild>
                 <Button variant={"solid"} onClick={handleFormSubmit}>
-                  <i className="fa-solid fa-plus"></i>
-                  <span>Add</span>
+                  <i className="fa-solid fa-pencil"></i>
+                  <span>Update</span>
                 </Button>
               </Dialog.ActionTrigger>
             </Dialog.Footer>

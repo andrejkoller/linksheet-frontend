@@ -2,18 +2,43 @@ import { useEffect, useState } from "react";
 import { Link } from "../../models/Link";
 import { getCurrentUserLinks } from "../../services/LinkService";
 import { getCurrentUserLinkSpace } from "../../services/LinkSpaceService";
+import { getCurrentUser } from "../../services/UserService";
 import { toast } from "react-toastify";
 import { NavLink } from "react-router-dom";
 import { LinkSpace } from "../../models/LinkSpace";
+import { User } from "../../models/User";
 
 const Username = () => {
+  const [currentUser, setCurrentUser] = useState<User | null>(null);
   const [links, setLinks] = useState<Link[]>([]);
   const [linkSpace, setLinkSpace] = useState<LinkSpace>({} as LinkSpace);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [hoveredLinkId, setHoveredLinkId] = useState<number | null>(null);
 
-  const currentUser = localStorage.getItem("user") || "Guest";
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const user = await getCurrentUser();
+        if (!user) {
+          toast.error("User not found. Please log in again.");
+          window.location.href = "/login";
+        } else {
+          setCurrentUser(user);
+        }
+      } catch (err) {
+        if (err instanceof Error) {
+          setError(err.message);
+        } else {
+          setError(String(err));
+        }
+        console.error("Error fetching current user:", err);
+        toast.error("Failed to load user. Please try again later.");
+      }
+    };
+
+    fetchUser();
+  }, []);
 
   useEffect(() => {
     const fetchLinkSpace = async () => {
@@ -70,14 +95,20 @@ const Username = () => {
       <div className="username-content">
         <div className="username-header">
           <div className="username-banner">
-            {currentUser.substring(0, 1).toUpperCase()}
+            {currentUser?.username.substring(0, 1).toUpperCase()}
           </div>
           <h1
             className="username-title"
             style={{ color: linkSpace?.linkPageFontColor }}
           >
-            @{currentUser}
+            @{currentUser?.username}
           </h1>
+          <span
+            className="description-title"
+            style={{ color: linkSpace?.linkPageFontColor }}
+          >
+            {currentUser?.description}
+          </span>
         </div>
         <div className="username-links">
           {loading && (
@@ -143,7 +174,9 @@ const Username = () => {
               ))}
         </div>
         <div className="username-footer">
-          <NavLink to={"/register"}>Join {currentUser} on Linksheet!</NavLink>
+          <NavLink to={"/register"}>
+            Join {currentUser?.username} on Linksheet!
+          </NavLink>
         </div>
       </div>
     </div>
