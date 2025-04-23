@@ -16,10 +16,11 @@ import Username from "./components/dashboard/Username";
 
 function App() {
   const location = useLocation();
+  const headerPathNames = ["/", "/templates", "/discover", "/learn"];
 
   return (
     <div className="app">
-      {location.pathname === "/" && (
+      {headerPathNames.includes(location.pathname) && (
         <div className="header">
           <Header />
         </div>

@@ -118,6 +118,10 @@ const DashboardAppearance = () => {
     }
   };
 
+  const formatEnumString = (enumString: string) => {
+    return enumString.replace(/([a-z])([A-Z])/g, "$1 $2");
+  };
+
   return (
     <div className="dashboard-appearance-container">
       <div className="dashboard-appearance-content">
@@ -210,7 +214,7 @@ const DashboardAppearance = () => {
                                     : "#000000",
                               }}
                             >
-                              {type.charAt(0).toUpperCase() + type.slice(1)}
+                              {formatEnumString(type)}
                             </Button>
                           ))}
                         </div>
