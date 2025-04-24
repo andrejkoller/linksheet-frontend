@@ -22,6 +22,45 @@ const DashboardHeader = () => {
           </div>
         </div>
         <div className="dashboard-header-right">
+          <div className="dashboard-header-actions-menu">
+            <MenuRoot>
+              <MenuTrigger asChild>
+                <Button variant={"outline"}>
+                  <span>Menu</span>
+                  <i className="fa-solid fa-chevron-down"></i>
+                </Button>
+              </MenuTrigger>
+              <Portal>
+                <Menu.Positioner>
+                  <Menu.Content>
+                    <Menu.Item
+                      value="dashboard"
+                      onClick={() => navigate("/dashboard")}
+                    >
+                      <i className="fa-solid fa-table-columns"></i>
+                      <span>My Linktree</span>
+                    </Menu.Item>
+                    <Menu.Item
+                      value="appearance"
+                      onClick={() => navigate("/dashboard/appearance")}
+                    >
+                      <i className="fa-solid fa-paint-roller"></i>
+                      <span>Appearance</span>
+                    </Menu.Item>
+                    <Menu.Item
+                      value="dashboard-space"
+                      onClick={() =>
+                        window.open("/dashboard/" + currentUser, "_blank")
+                      }
+                    >
+                      <i className="fa-solid fa-arrow-up-right-from-square"></i>
+                      <span>Visit Space</span>
+                    </Menu.Item>
+                  </Menu.Content>
+                </Menu.Positioner>
+              </Portal>
+            </MenuRoot>
+          </div>
           <div className="dashboard-header-profile">
             <MenuRoot>
               <MenuTrigger asChild>

@@ -1063,6 +1063,18 @@
   border-radius: 12px;
 }
 
+.dashboard-header
+  .dashboard-header-container
+  .dashboard-header-content
+  .dashboard-header-right
+  .dashboard-header-actions-menu
+  button {
+  font-family: "Poppins-Medium";
+  font-size: 1em;
+  background-color: #ffffff;
+  border-radius: 12px;
+}
+
 /* Dashboard Sidebar */
 .dashboard-sidebar .dashboard-sidebar-container {
   display: flex;
@@ -1213,7 +1225,7 @@
   .dashboard-link-control
   .dashboard-link-control-item
   button {
-  width: 55%;
+  width: 550px;
   background-color: #4f2173;
   border-radius: 999px;
   padding: 25px 50px;
@@ -1253,7 +1265,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 55%;
+  width: 550px;
   background-color: #ffffff;
   border-radius: 12px;
   padding: 20px 32px;
@@ -1307,6 +1319,7 @@
   .dashboard-link-item-info
   a {
   font-family: "Poppins-Regular";
+  width: 100%;
 }
 
 .dashboard-body
@@ -1352,8 +1365,8 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  width: 70%;
-  min-height: 75%;
+  width: 330px;
+  min-height: 625px;
   margin: auto;
   border-radius: 24px;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
@@ -2301,8 +2314,32 @@
     align-items: flex-start;
     justify-content: center;
   }
+
   .templates-container .templates-content .templates-list {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .dashboard .dashboard-container .dashboard-content .dashboard-sidebar {
+    display: none;
+  }
+
+  .dashboard
+    .dashboard-container
+    .dashboard-content
+    .dashboard-header-body-wrapper {
+    width: 100%;
+  }
+
+  .dashboard-body .dashboard-link-container {
+    width: 65%;
+  }
+
+  .dashboard-body .dashboard-body-space-container {
+    width: 35%;
+  }
+
+  .dashboard-appearance-container {
+    padding: 0 15vw 0 5vw;
   }
 }
 
@@ -2396,6 +2433,24 @@
   .templates-container .templates-content .templates-list {
     grid-template-columns: repeat(1, 1fr);
   }
+
+  .dashboard-body .dashboard-link-container {
+    width: 100%;
+  }
+
+  .dashboard-space {
+    display: none;
+  }
+
+  .dashboard-appearance-container {
+    width: 100%;
+    padding: 0 5vw;
+  }
+
+  .dashboard-account-container {
+    width: 100%;
+    padding: 0 5vw;
+  }
 }
 
 @media all and (max-width: 768px) {
@@ -2405,6 +2460,17 @@
 
   .header .header-container .header-content .header-right {
     width: 100%;
+  }
+
+  .header
+    .header-container
+    .header-content
+    .header-left
+    .header-left-content
+    .header-left-content-item
+    .header-logo
+    h1 {
+    font-size: 1.5em;
   }
 
   .intro
@@ -2433,6 +2499,21 @@
     .intro-content-left
     .intro-content-item:nth-child(2) {
     flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .intro
+    .intro-container
+    .intro-content
+    .intro-content-left
+    .intro-content-item-button
+    button {
+    padding: 35px 25px;
+    font-size: 0.8em;
+  }
+
+  .faq .faq-container .faq-content .faq-title h1 {
+    font-size: 2.5em;
   }
 
   .footer
@@ -2452,15 +2533,35 @@
     flex-direction: column;
   }
 
-  .header
-    .header-container
-    .header-content
-    .header-left
-    .header-left-content
-    .header-left-content-item
-    .header-logo
-    h1 {
-    font-size: 1.5em;
+  .footer
+    .footer-container
+    .footer-content
+    .footer-content-bottom
+    .footer-content-item:nth-child(2)
+    .footer-content-item-wrapper-register-login {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+  }
+
+  .footer
+    .footer-container
+    .footer-content
+    .footer-content-top
+    .footer-content-item
+    .footer-content-item-title
+    h2 {
+    font-size: 2em;
+  }
+
+  .footer
+    .footer-container
+    .footer-content
+    .footer-content-top
+    .footer-content-item-button
+    button {
+    padding: 35px 35px;
+    font-size: 0.8em;
   }
 
   .footer
@@ -2504,9 +2605,48 @@
   .username-container .username-content .username-links .username-link-item {
     width: 420px;
   }
+
+  .dashboard-body
+    .dashboard-link-container
+    .dashboard-link-content
+    .dashboard-link-list
+    .dashboard-link-item
+    .dashboard-link-item-content {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .dashboard-body
+    .dashboard-link-container
+    .dashboard-link-content
+    .dashboard-link-control
+    .dashboard-link-control-item
+    button {
+    width: 80%;
+  }
+
+  .dashboard-body
+    .dashboard-link-container
+    .dashboard-link-content
+    .dashboard-link-list
+    .dashboard-link-item {
+    width: 80%;
+  }
+
+  .dashboard-account-container
+    .dashboard-account-content
+    .dashboard-account-info-body
+    .dashboard-account-info-item
+    .dashboard-account-info-username-email-wrapper {
+    flex-direction: column;
+  }
 }
 
 @media all and (max-width: 425px) {
+  .intro .intro-container .intro-content {
+    width: 90%;
+  }
+
   .footer
     .footer-container
     .footer-content
@@ -2540,6 +2680,24 @@
   .username-container .username-content .username-links .username-link-item {
     width: 320px;
   }
+
+  .dashboard-appearance-container
+    .dashboard-appearance-content
+    .dashboard-appearance-body
+    .appearance-setting
+    .appearance-button-color
+    .appearance-button-type-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-header
+    .dashboard-header-container
+    .dashboard-header-content
+    .dashboard-header-left
+    .dashboard-header-title
+    h1 {
+    display: none;
+  }
 }
 
 @media all and (max-width: 375px) {
@@ -2553,5 +2711,34 @@
 
   .username-container .username-content .username-links .username-link-item {
     width: 280px;
+  }
+
+  .dashboard-appearance-container
+    .dashboard-appearance-content
+    .dashboard-appearance-body
+    .appearance-setting
+    .appearance-background-color {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .dashboard-appearance-container
+    .dashboard-appearance-content
+    .dashboard-appearance-body
+    .appearance-setting
+    .appearance-button-c-picker-wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .dashboard-appearance-container
+    .dashboard-appearance-content
+    .dashboard-appearance-body
+    .appearance-setting
+    .appearance-font-color {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
   }
 }

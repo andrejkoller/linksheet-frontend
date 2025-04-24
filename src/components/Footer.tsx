@@ -82,7 +82,7 @@ const Footer = () => {
               </div>
             </div>
             <div className="footer-content-item">
-              <div>
+              <div className="footer-content-item-wrapper-register-login">
                 <Link to={"/login"}>Log in</Link>
                 <Link to={"/register"}>Sign up free</Link>
               </div>
