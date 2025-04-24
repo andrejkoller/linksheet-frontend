@@ -48,11 +48,11 @@ const Footer = () => {
           </div>
           <div className="footer-content-bottom">
             <div className="footer-content-item">
-              <div>
+              <div className="footer-content-item-wrapper">
                 <div>
                   <h3>Company</h3>
                 </div>
-                <div>
+                <div className="footer-content-item-links">
                   <Link to={"/"}>About</Link>
                   <Link to={"/"}>Careers</Link>
                   <Link to={"/"}>Blog</Link>
@@ -60,21 +60,21 @@ const Footer = () => {
                   <Link to={"/"}>Brand</Link>
                 </div>
               </div>
-              <div>
+              <div className="footer-content-item-wrapper">
                 <div>
                   <h3>Support</h3>
                 </div>
-                <div>
+                <div className="footer-content-item-links">
                   <a href="mailto:andrejkoller@outlook.com">Contact Us</a>
                   <Link to={"/"}>Help Center</Link>
                   <Link to={"/"}>Status</Link>
                 </div>
               </div>
-              <div>
+              <div className="footer-content-item-wrapper">
                 <div>
                   <h3>Trust & Legal</h3>
                 </div>
-                <div>
+                <div className="footer-content-item-links">
                   <Link to={"/"}>Privacy Policy</Link>
                   <Link to={"/"}>Terms of Service</Link>
                   <Link to={"/"}>Cookie Policy</Link>

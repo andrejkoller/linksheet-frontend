@@ -9,6 +9,7 @@ const Header = () => {
             <div className="header-left-content">
               <div className="header-left-content-item">
                 <div className="header-logo">
+                  <i className="fa-solid fa-bars"></i>
                   <h1>
                     <Link to={"/"}>Linksheet</Link>
                   </h1>

@@ -51,6 +51,18 @@
   .header-content
   .header-left
   .header-left-content
+  .header-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header
+  .header-container
+  .header-content
+  .header-left
+  .header-left-content
+  .header-logo
   .header-left-content-item {
   padding: 11px 16px;
 }
@@ -60,6 +72,7 @@
   .header-content
   .header-left
   .header-left-content
+  .header-logo
   .header-left-content-item
   a {
   text-decoration: none;
@@ -76,6 +89,18 @@
   h1 {
   font-family: "Poppins-Bold";
   font-size: 2em;
+}
+
+.header
+  .header-container
+  .header-content
+  .header-left
+  .header-left-content
+  .header-left-content-item
+  .header-logo
+  i {
+  display: none;
+  font-size: 1.5em;
 }
 
 .header .header-container .header-content .header-right {
@@ -284,8 +309,8 @@
   .intro-content-left
   .intro-content-item-input
   input {
-  width: 100%;
-  height: 100%;
+  width: 225px;
+  height: auto;
   padding: 25px 50px 25px 15px;
   background-color: #ffffff;
   color: #000000;
@@ -410,7 +435,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
 }
 
@@ -475,8 +500,8 @@
   .footer-content-top
   .footer-content-item-input
   input {
-  width: 100%;
-  height: 100%;
+  width: 225px;
+  height: auto;
   padding: 25px 50px 25px 15px;
   background-color: #ffffff;
   color: #000000;
@@ -2240,4 +2265,151 @@
   button:hover {
   background-color: #e0b3e0;
   transition: background-color 0.3s ease;
+}
+
+@media all and (max-width: 1440px) {
+  .intro
+    .intro-container
+    .intro-content
+    .intro-content-left
+    .intro-content-item
+    .intro-content-item-title
+    h2 {
+    font-size: 3.5em;
+  }
+
+  .faq .faq-container .faq-content {
+    width: 80%;
+  }
+
+  .footer
+    .footer-container
+    .footer-content
+    .footer-content-bottom
+    .footer-content-item:nth-child(2) {
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+    justify-content: center;
+  }
+}
+
+@media all and (max-width: 1024px) {
+  .header
+    .header-container
+    .header-content
+    .header-left
+    .header-left-content
+    .header-left-content-item:not(:nth-child(1)) {
+    display: none;
+  }
+
+  .header
+    .header-container
+    .header-content
+    .header-left
+    .header-left-content
+    .header-left-content-item
+    .header-logo
+    i {
+    display: block;
+  }
+
+  .intro
+    .intro-container
+    .intro-content
+    .intro-content-left
+    .intro-content-item:nth-child(1) {
+    gap: 20px;
+  }
+
+  .intro-content-right {
+    display: none;
+  }
+
+  .footer
+    .footer-container
+    .footer-content
+    .footer-content-bottom
+    .footer-content-item:nth-child(1)
+    div
+    h3 {
+    font-size: 1.2em;
+  }
+
+  .footer
+    .footer-container
+    .footer-content
+    .footer-content-bottom
+    .footer-content-item:nth-child(1)
+    div
+    a {
+    font-size: 1em;
+  }
+
+  .footer
+    .footer-container
+    .footer-content
+    .footer-content-top
+    .footer-content-item
+    .footer-content-item-title
+    h2 {
+    font-size: 2.5em;
+  }
+}
+
+@media all and (max-width: 768px) {
+  .header .header-container .header-content .header-left {
+    width: auto;
+  }
+
+  .header .header-container .header-content .header-right {
+    width: 100%;
+  }
+
+  .footer
+    .footer-container
+    .footer-content
+    .footer-content-bottom
+    .footer-content-item:nth-child(1) {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .header
+    .header-container
+    .header-content
+    .header-left
+    .header-left-content
+    .header-left-content-item
+    .header-logo
+    h1 {
+    font-size: 1.5em;
+  }
+
+  .footer
+    .footer-container
+    .footer-content
+    .footer-content-bottom
+    .footer-content-item-wrapper {
+    gap: 10px;
+  }
+
+  .footer
+    .footer-container
+    .footer-content
+    .footer-content-bottom
+    .footer-content-item:nth-child(1)
+    div
+    a {
+    margin-top: 0;
+  }
+
+  .footer
+    .footer-container
+    .footer-content
+    .footer-content-bottom
+    .footer-content-item-links {
+    flex-direction: row;
+  }
 }
