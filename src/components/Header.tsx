@@ -9,7 +9,6 @@ const Header = () => {
             <div className="header-left-content">
               <div className="header-left-content-item">
                 <div className="header-logo">
-                  <i className="fa-solid fa-bars"></i>
                   <h1>
                     <Link to={"/"}>Linksheet</Link>
                   </h1>
@@ -33,6 +32,9 @@ const Header = () => {
               </div>
               <div className="header-right-content-item">
                 <Link to={"/register"}>Sign up free</Link>
+              </div>
+              <div className="header-menu-icon">
+                <i className="fa-solid fa-bars"></i>
               </div>
             </div>
           </div>

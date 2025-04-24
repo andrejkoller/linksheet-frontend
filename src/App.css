@@ -91,18 +91,6 @@
   font-size: 2em;
 }
 
-.header
-  .header-container
-  .header-content
-  .header-left
-  .header-left-content
-  .header-left-content-item
-  .header-logo
-  i {
-  display: none;
-  font-size: 1.5em;
-}
-
 .header .header-container .header-content .header-right {
   display: flex;
   flex-direction: row;
@@ -171,7 +159,7 @@
   .header-content
   .header-right
   .header-right-content
-  div:last-child {
+  div:nth-child(2) {
   background-color: #1e2330;
   border-radius: 999px;
   color: #ffffff;
@@ -184,9 +172,32 @@
   .header-content
   .header-right
   .header-right-content
-  div:last-child:hover {
+  div:nth-child(2):hover {
   background-color: #262c3b;
   transition: background-color 0.3s ease;
+}
+
+.header
+  .header-container
+  .header-content
+  .header-right
+  .header-right-content
+  .header-menu-icon {
+  display: none;
+  background-color: #1e2330;
+  color: #ffffff;
+  border-radius: 999px;
+  padding: 20px 25px;
+}
+
+.header
+  .header-container
+  .header-content
+  .header-right
+  .header-right-content
+  .header-menu-icon
+  i {
+  font-size: 1.5em;
 }
 
 /* Home */
@@ -1596,7 +1607,7 @@
   font-family: "Poppins-Regular";
   font-size: 14px;
   padding: 24px 44px;
-  width: 33%;
+  width: 620px;
   text-align: center;
   cursor: pointer;
   margin-bottom: 20px;
@@ -2103,6 +2114,7 @@
 .templates-container .templates-content .templates-header h1 {
   font-family: "Poppins-Bold";
   font-size: 3.5em;
+  text-align: center;
   color: #780016;
 }
 
@@ -2199,6 +2211,7 @@
   font-family: "Poppins-Regular";
   font-size: 1em;
   margin-bottom: 20px;
+  text-align: center;
 }
 
 .templates-container
@@ -2288,6 +2301,9 @@
     align-items: flex-start;
     justify-content: center;
   }
+  .templates-container .templates-content .templates-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media all and (max-width: 1024px) {
@@ -2303,11 +2319,27 @@
   .header
     .header-container
     .header-content
-    .header-left
-    .header-left-content
-    .header-left-content-item
-    .header-logo
-    i {
+    .header-right
+    .header-right-content
+    div:nth-child(1) {
+    display: none;
+  }
+
+  .header
+    .header-container
+    .header-content
+    .header-right
+    .header-right-content
+    div:nth-child(2) {
+    display: none;
+  }
+
+  .header
+    .header-container
+    .header-content
+    .header-right
+    .header-right-content
+    .header-menu-icon {
     display: block;
   }
 
@@ -2352,6 +2384,18 @@
     h2 {
     font-size: 2.5em;
   }
+
+  .templates-container .templates-content .templates-header h1 {
+    font-size: 2.5em;
+  }
+
+  .templates-container .templates-content .templates-header p {
+    font-size: 1.2em;
+  }
+
+  .templates-container .templates-content .templates-list {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 
 @media all and (max-width: 768px) {
@@ -2361,6 +2405,26 @@
 
   .header .header-container .header-content .header-right {
     width: 100%;
+  }
+
+  .intro
+    .intro-container
+    .intro-content
+    .intro-content-left
+    .intro-content-item
+    .intro-content-item-title
+    h2 {
+    font-size: 2.5em;
+  }
+
+  .intro
+    .intro-container
+    .intro-content
+    .intro-content-left
+    .intro-content-item
+    .intro-content-item-subtitle
+    p {
+    font-size: 1.2em;
   }
 
   .intro
@@ -2436,15 +2500,45 @@
   .login .login-container .login-content .login-form form {
     width: 400px;
   }
+
+  .username-container .username-content .username-links .username-link-item {
+    width: 420px;
+  }
 }
 
 @media all and (max-width: 425px) {
+  .footer
+    .footer-container
+    .footer-content
+    .footer-content-bottom
+    .footer-content-item:nth-child(2)
+    div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer
+    .footer-container
+    .footer-content
+    .footer-content-bottom
+    .footer-content-item:nth-child(2)
+    div
+    a {
+    padding: 25px 25px;
+    text-align: center;
+    font-size: 0.8em;
+  }
+
   .register .register-container .register-content .register-form form {
     width: 350px;
   }
 
   .login .login-container .login-content .login-form form {
     width: 350px;
+  }
+
+  .username-container .username-content .username-links .username-link-item {
+    width: 320px;
   }
 }
 
@@ -2455,5 +2549,9 @@
 
   .login .login-container .login-content .login-form form {
     width: 300px;
+  }
+
+  .username-container .username-content .username-links .username-link-item {
+    width: 280px;
   }
 }
