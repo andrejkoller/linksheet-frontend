@@ -41,6 +41,11 @@ const AddLinkDialog = ({ isOpen, onClose }: AddLinkDialogHandleProps) => {
 
   const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!formData.title || !formData.url) {
+      toast.error("Please fill in all required fields.");
+      return;
+    }
+
     try {
       const newLink = await createLink(formData);
       setLinks((prevLinks) => [...prevLinks, newLink]);

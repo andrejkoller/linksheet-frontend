@@ -1210,6 +1210,14 @@
   .dashboard-header-container
   .dashboard-header-content
   .dashboard-header-right
+  .dashboard-header-actions-menu {
+  display: none;
+}
+
+.dashboard-header
+  .dashboard-header-container
+  .dashboard-header-content
+  .dashboard-header-right
   .dashboard-header-actions-menu
   button {
   font-family: "Poppins-Medium";
@@ -2460,6 +2468,14 @@
 
   .templates-container .templates-content .templates-list {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .dashboard-header
+    .dashboard-header-container
+    .dashboard-header-content
+    .dashboard-header-right
+    .dashboard-header-actions-menu {
+    display: block;
   }
 
   .dashboard .dashboard-container .dashboard-content .dashboard-sidebar {
