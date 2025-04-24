@@ -703,7 +703,6 @@
   justify-content: flex-start;
   align-items: center;
   height: 100%;
-  width: 50%;
   padding: 128px 0;
 }
 
@@ -723,7 +722,6 @@
 
 .register .register-container .register-content .register-form {
   margin: 40px auto;
-  width: 50%;
 }
 
 .register .register-container .register-content .register-form form {
@@ -731,7 +729,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: 500px;
   gap: 20px;
 }
 
@@ -832,7 +830,6 @@
   justify-content: flex-start;
   align-items: center;
   height: 100%;
-  width: 50%;
   padding: 128px 0;
 }
 
@@ -852,7 +849,6 @@
 
 .login .login-container .login-content .login-form {
   margin: 40px auto;
-  width: 50%;
 }
 
 .login .login-container .login-content .login-form form {
@@ -860,7 +856,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: 500px;
   gap: 20px;
 }
 
@@ -2324,7 +2320,7 @@
   }
 
   .intro-content-right {
-    display: none;
+    display: none !important;
   }
 
   .footer
@@ -2367,6 +2363,14 @@
     width: 100%;
   }
 
+  .intro
+    .intro-container
+    .intro-content
+    .intro-content-left
+    .intro-content-item:nth-child(2) {
+    flex-direction: column;
+  }
+
   .footer
     .footer-container
     .footer-content
@@ -2374,6 +2378,14 @@
     .footer-content-item:nth-child(1) {
     flex-direction: column;
     gap: 20px;
+  }
+
+  .footer
+    .footer-container
+    .footer-content
+    .footer-content-top
+    .footer-content-item:nth-child(2) {
+    flex-direction: column;
   }
 
   .header
@@ -2411,5 +2423,37 @@
     .footer-content-bottom
     .footer-content-item-links {
     flex-direction: row;
+  }
+
+  .register .register-container .register-content .register-title h1 {
+    font-size: 2.5em;
+  }
+
+  .register .register-container .register-content .register-form form {
+    width: 400px;
+  }
+
+  .login .login-container .login-content .login-form form {
+    width: 400px;
+  }
+}
+
+@media all and (max-width: 425px) {
+  .register .register-container .register-content .register-form form {
+    width: 350px;
+  }
+
+  .login .login-container .login-content .login-form form {
+    width: 350px;
+  }
+}
+
+@media all and (max-width: 375px) {
+  .register .register-container .register-content .register-form form {
+    width: 300px;
+  }
+
+  .login .login-container .login-content .login-form form {
+    width: 300px;
   }
 }
