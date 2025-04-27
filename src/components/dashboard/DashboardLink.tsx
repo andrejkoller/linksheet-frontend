@@ -9,9 +9,10 @@ import {
 import { toast } from "react-toastify";
 import AddLinkDialog from "./dialogs/AddLinkDialog";
 import UpdateLinkDialog from "./dialogs/UpdateLinkDialog";
+import { useLinks } from "../../context/LinksContext";
 
 const DashboardLink = () => {
-  const [links, setLinks] = useState<Link[]>([]);
+  const { links, setLinks } = useLinks();
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const { open, onOpen, onClose } = useDisclosure();
@@ -37,13 +38,13 @@ const DashboardLink = () => {
     };
 
     fetchLinks();
-  }, []);
+  }, [setLinks]);
 
   const handleDeleteLink = async (linkId: number) => {
     try {
       await deleteLink(linkId);
       setLinks((prevLinks) => prevLinks.filter((link) => link.id !== linkId));
-      toast.success("Link deleted successfully.");
+      toast.success("Link deleted!");
     } catch (err) {
       if (err instanceof Error) {
         setError(err.message);
@@ -53,12 +54,6 @@ const DashboardLink = () => {
       console.error("Error deleting link:", err);
       toast.error("Failed to delete link. Please try again later.");
     }
-  };
-
-  const handleUpdateLink = (updatedLink: Link) => {
-    setLinks((prevLinks) =>
-      prevLinks.map((link) => (link.id === updatedLink.id ? updatedLink : link))
-    );
   };
 
   const openUpdateDialog = (link: Link) => {
@@ -75,7 +70,7 @@ const DashboardLink = () => {
           setLinks((prevLinks) =>
             prevLinks.map((l) => (l.id === linkId ? updatedLink : l))
           );
-          toast.success("Link visibility updated successfully.");
+          toast.success("Link visibility updated!");
         })
         .catch((err) => {
           console.error("Error updating link visibility:", err);
@@ -97,7 +92,6 @@ const DashboardLink = () => {
           isOpen={isUpdateDialogOpen}
           onClose={() => setIsUpdateDialogOpen(false)}
           link={selectedLink}
-          onUpdatedLink={handleUpdateLink}
         />
       </div>
 
@@ -152,7 +146,9 @@ const DashboardLink = () => {
                       <Switch.Root
                         colorPalette={"green"}
                         size="lg"
-                        onChange={() => handleSwitchChange(link.id)}
+                        onChange={() =>
+                          link.id !== undefined && handleSwitchChange(link.id)
+                        }
                         checked={link.isActive}
                       >
                         <Switch.HiddenInput />
@@ -171,7 +167,9 @@ const DashboardLink = () => {
                     <Button
                       variant={"outline"}
                       className="dashboard-link-item-button"
-                      onClick={() => handleDeleteLink(link.id)}
+                      onClick={() =>
+                        link.id !== undefined && handleDeleteLink(link.id)
+                      }
                     >
                       <i className="fa-regular fa-trash-can"></i>
                     </Button>

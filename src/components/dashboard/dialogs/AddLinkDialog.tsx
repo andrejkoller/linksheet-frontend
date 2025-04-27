@@ -9,7 +9,7 @@ import {
 import { useState } from "react";
 import { toast } from "react-toastify";
 import { createLink } from "../../../services/LinkService";
-import { Link } from "../../../models/Link";
+import { useLinks } from "../../../context/LinksContext";
 
 interface AddLinkDialogHandleProps {
   isOpen: boolean;
@@ -17,10 +17,9 @@ interface AddLinkDialogHandleProps {
 }
 
 const AddLinkDialog = ({ isOpen, onClose }: AddLinkDialogHandleProps) => {
-  const [, setLinks] = useState<Link[]>([]);
+  const { setLinks } = useLinks();
   const [, setError] = useState<string | null>(null);
   const [formData, setFormData] = useState({
-    id: 0,
     title: "",
     url: "",
     isActive: true,
@@ -48,8 +47,8 @@ const AddLinkDialog = ({ isOpen, onClose }: AddLinkDialogHandleProps) => {
 
     try {
       const newLink = await createLink(formData);
+      toast.success("Link created!");
       setLinks((prevLinks) => [...prevLinks, newLink]);
-      toast.success("Link created successfully.");
       onClose();
     } catch (err) {
       if (err instanceof Error) {

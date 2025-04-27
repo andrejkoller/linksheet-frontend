@@ -2,6 +2,7 @@ import { User } from "./User";
 
 export interface LinkSpace {
     id: number;
+    description: string;
     linkPageBackgroundColor: string;
     linkButtonColor: string;
     linkButtonFontColor: string;

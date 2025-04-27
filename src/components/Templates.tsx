@@ -102,7 +102,8 @@ const Templates = () => {
                                   borderStyle: "solid",
                                   borderColor: user.linkSpace?.linkButtonColor,
                                   color:
-                                    hoveredLinkId === link.id
+                                    hoveredLinkId === link.id &&
+                                    link.id !== undefined
                                       ? user.linkSpace.linkPageBackgroundColor
                                       : user.linkSpace.linkButtonFontColor,
                                   backgroundColor:
@@ -110,7 +111,10 @@ const Templates = () => {
                                       ? user.linkSpace.linkButtonColor
                                       : "transparent",
                                 }}
-                                onMouseEnter={() => setHoveredLinkId(link.id)}
+                                onMouseEnter={() =>
+                                  link.id !== undefined &&
+                                  setHoveredLinkId(link.id)
+                                }
                                 onMouseLeave={() => setHoveredLinkId(null)}
                               >
                                 <a

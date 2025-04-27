@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import { User } from "../../models/User";
 import { getCurrentUser, updateUser } from "../../services/UserService";
 import { Button, Card, Input, Spinner } from "@chakra-ui/react";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import { useCurrentUser } from "../../context/CurrentUserContext";
 
 const DashboardAccount = () => {
-  const [user, setUser] = useState<User | null>(null);
+  const { currentUser, setCurrentUser } = useCurrentUser();
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const navigate = useNavigate();
@@ -15,7 +15,7 @@ const DashboardAccount = () => {
     const fetchCurrentUser = async () => {
       try {
         const data = await getCurrentUser();
-        setUser(data);
+        setCurrentUser(data);
       } catch (err) {
         if (err instanceof Error) {
           setError(err.message);
@@ -29,26 +29,26 @@ const DashboardAccount = () => {
     };
 
     fetchCurrentUser();
-  }, []);
+  }, [setCurrentUser]);
 
   const handleEditProfile = (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (user) {
+    if (currentUser) {
       const updatedUser = {
-        ...user,
-        username: user.username,
-        email: user.email,
-        description: user.description,
+        ...currentUser,
+        username: currentUser.username,
+        email: currentUser.email,
+        description: currentUser.description,
       };
-      updateUser(user.id, updatedUser)
+      updateUser(currentUser.id, updatedUser)
         .then(() => {
-          setUser(updatedUser);
-          toast.success("Profile updated successfully!");
+          setCurrentUser(updatedUser);
+          toast.success("Profile updated!");
           if (
-            user.username !== updatedUser.username ||
-            user.email !== updatedUser.email ||
-            !user.description
+            currentUser.username !== updatedUser.username ||
+            currentUser.email !== updatedUser.email ||
+            !currentUser.description
           ) {
             toast.info("Please log in again with your new username.");
             navigate("/login");
@@ -87,7 +87,7 @@ const DashboardAccount = () => {
           ) : (
             <div className="dashboard-account-info">
               {error && <p className="notifications">Error: {error}</p>}
-              {!error && user && (
+              {!error && currentUser && (
                 <form onSubmit={handleEditProfile}>
                   <div className="dashboard-account-info-details">
                     <Card.Root>
@@ -105,9 +105,12 @@ const DashboardAccount = () => {
                                 id="username"
                                 name="username"
                                 placeholder="Enter your username"
-                                value={user.username}
+                                value={currentUser.username}
                                 onChange={(e) =>
-                                  setUser({ ...user, username: e.target.value })
+                                  setCurrentUser({
+                                    ...currentUser,
+                                    username: e.target.value,
+                                  })
                                 }
                               />
                             </Card.Description>
@@ -122,9 +125,12 @@ const DashboardAccount = () => {
                                 id="email"
                                 name="email"
                                 placeholder="Enter your email"
-                                value={user.email}
+                                value={currentUser.email}
                                 onChange={(e) =>
-                                  setUser({ ...user, email: e.target.value })
+                                  setCurrentUser({
+                                    ...currentUser,
+                                    email: e.target.value,
+                                  })
                                 }
                               />
                             </Card.Description>
@@ -141,10 +147,10 @@ const DashboardAccount = () => {
                                 id="description"
                                 name="description"
                                 placeholder="Enter your description"
-                                value={user.description}
+                                value={currentUser.description}
                                 onChange={(e) =>
-                                  setUser({
-                                    ...user,
+                                  setCurrentUser({
+                                    ...currentUser,
                                     description: e.target.value,
                                   })
                                 }

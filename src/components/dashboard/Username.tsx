@@ -1,17 +1,17 @@
 import { useEffect, useState } from "react";
-import { Link } from "../../models/Link";
 import { getCurrentUserLinks } from "../../services/LinkService";
 import { getCurrentUserLinkSpace } from "../../services/LinkSpaceService";
 import { getCurrentUser } from "../../services/UserService";
 import { toast } from "react-toastify";
 import { NavLink } from "react-router-dom";
-import { LinkSpace } from "../../models/LinkSpace";
 import { User } from "../../models/User";
+import { useLinks } from "../../context/LinksContext";
+import { useLinkSpace } from "../../context/LinkSpaceContext";
 
 const Username = () => {
   const [currentUser, setCurrentUser] = useState<User | null>(null);
-  const [links, setLinks] = useState<Link[]>([]);
-  const [linkSpace, setLinkSpace] = useState<LinkSpace>({} as LinkSpace);
+  const { links, setLinks } = useLinks();
+  const { linkSpace, setLinkSpace } = useLinkSpace();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [hoveredLinkId, setHoveredLinkId] = useState<number | null>(null);
@@ -75,7 +75,7 @@ const Username = () => {
 
     fetchLinks();
     fetchLinkSpace();
-  }, []);
+  }, [setLinkSpace, setLinks]);
 
   return (
     <div
@@ -164,7 +164,9 @@ const Username = () => {
                         ? linkSpace?.linkButtonColor
                         : "transparent",
                   }}
-                  onMouseEnter={() => setHoveredLinkId(link.id)}
+                  onMouseEnter={() =>
+                    link.id !== undefined && setHoveredLinkId(link.id)
+                  }
                   onMouseLeave={() => setHoveredLinkId(null)}
                 >
                   <a href={link.url} target="_blank" rel="noopener noreferrer">

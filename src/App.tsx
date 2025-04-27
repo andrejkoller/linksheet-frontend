@@ -13,48 +13,57 @@ import DashboardAppearance from "./components/dashboard/DashboardAppearance";
 import { ToastContainer } from "react-toastify";
 import DashboardAccount from "./components/dashboard/DashboardAccount";
 import Username from "./components/dashboard/Username";
+import { LinkSpaceProvider } from "./context/LinkSpaceContext";
+import { LinksProvider } from "./context/LinksContext";
+import { UserProvider } from "./context/CurrentUserContext";
 
 function App() {
   const location = useLocation();
   const headerPathNames = ["/", "/templates", "/discover", "/learn"];
 
   return (
-    <div className="app">
-      {headerPathNames.includes(location.pathname) && (
-        <div className="header">
-          <Header />
-        </div>
-      )}
-      <div className="body">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/templates" element={<Templates />} />
-          <Route path="/discover" element={<Discover />} />
-          <Route path="/learn" element={<Learn />} />
-          <Route path="/dashboard/:username" element={<Username />} />
-          <Route path="/dashboard/*" element={<Dashboard />}>
-            <Route index element={<DashboardLink />} />
-            <Route path="appearance" element={<DashboardAppearance />} />
-            <Route path="account" element={<DashboardAccount />} />
-          </Route>
-        </Routes>
-      </div>
-      <ToastContainer
-        position="bottom-right"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        toastStyle={{ backgroundColor: "#ededeb", color: "#000000" }}
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        style={{ zIndex: 1000 }}
-      ></ToastContainer>{" "}
-    </div>
+    <UserProvider>
+      <LinkSpaceProvider>
+        <LinksProvider>
+          <div className="app">
+            {headerPathNames.includes(location.pathname) && (
+              <div className="header">
+                <Header />
+              </div>
+            )}
+            <div className="body">
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/register" element={<Register />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/templates" element={<Templates />} />
+                <Route path="/discover" element={<Discover />} />
+                <Route path="/learn" element={<Learn />} />
+                <Route path="/dashboard/:username" element={<Username />} />
+                <Route path="/dashboard/*" element={<Dashboard />}>
+                  <Route index element={<DashboardLink />} />
+                  <Route path="appearance" element={<DashboardAppearance />} />
+                  <Route path="account" element={<DashboardAccount />} />
+                </Route>
+              </Routes>
+            </div>
+            <ToastContainer
+              position="bottom-right"
+              autoClose={5000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              toastStyle={{ backgroundColor: "#ededeb", color: "#000000" }}
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              style={{ zIndex: 1000 }}
+            ></ToastContainer>{" "}
+          </div>
+        </LinksProvider>
+      </LinkSpaceProvider>
+    </UserProvider>
   );
 }
 

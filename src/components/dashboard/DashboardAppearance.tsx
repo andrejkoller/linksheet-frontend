@@ -5,6 +5,7 @@ import {
   HStack,
   parseColor,
   Portal,
+  Textarea,
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import {
@@ -18,6 +19,7 @@ import { LinkBorderRadiusType, LinkSpace } from "../../models/LinkSpace";
 const DashboardAppearance = () => {
   const [linkSpace, setLinkSpace] = useState<LinkSpace | null>(null);
   const [formData, setFormData] = useState({
+    description: "",
     backgroundColor: "#ffffff",
     buttonColor: "#000000",
     buttonFontColor: "#ffffff",
@@ -28,6 +30,7 @@ const DashboardAppearance = () => {
   useEffect(() => {
     if (linkSpace) {
       setFormData({
+        description: linkSpace.description,
         backgroundColor: linkSpace.linkPageBackgroundColor,
         buttonColor: linkSpace.linkButtonColor,
         buttonFontColor: linkSpace.linkButtonFontColor,
@@ -44,6 +47,7 @@ const DashboardAppearance = () => {
         setLinkSpace(response);
         if (response) {
           setFormData({
+            description: response.description,
             backgroundColor: response.linkPageBackgroundColor,
             buttonColor: response.linkButtonColor,
             buttonFontColor: response.linkButtonFontColor,
@@ -89,6 +93,7 @@ const DashboardAppearance = () => {
     ) {
       const linkSpace: LinkSpace = {
         id: 0,
+        description: formData.description,
         linkPageBackgroundColor: formData.backgroundColor,
         linkButtonColor: formData.buttonColor,
         linkButtonFontColor: formData.buttonFontColor,
@@ -101,10 +106,10 @@ const DashboardAppearance = () => {
 
         if (response) {
           await updateLinkSpace(response.id, linkSpace);
-          toast.success("Link space updated successfully!");
+          toast.success("Linkspace updated!");
         } else {
           await createLinkSpace(linkSpace);
-          toast.success("Link space created successfully!");
+          toast.success("Linkspace created!");
         }
       } catch (error) {
         if (error instanceof Error) {
@@ -136,11 +141,46 @@ const DashboardAppearance = () => {
           </p>
           <form onSubmit={handleSubmit}>
             <div className="appearance-setting">
+              <label className="appearance-setting-label">Template Description</label>
+              <Card.Root className="appearance-setting-card">
+                <Card.Body className="appearance-setting-body">
+                  <div className="appearance-description-container">
+                    <div className="appearance-description">
+                      <Textarea
+                        className="appearance-description-input"
+                        variant={"outline"}
+                        id="description"
+                        name="description"
+                        placeholder="Tells us about your Linksheet"
+                        autoresize={true}
+                        value={formData.description}
+                        onChange={(e) =>
+                          setFormData({
+                            ...formData,
+                            description: e.target.value,
+                          })
+                        }
+                      />
+                    </div>
+                    <div className="appearance-button-container">
+                      <Button
+                        className="dashboard-appearance-edit-button"
+                        variant={"solid"}
+                        type="submit"
+                      >
+                        Save
+                      </Button>
+                    </div>
+                  </div>
+                </Card.Body>
+              </Card.Root>
+            </div>
+            <div className="appearance-setting">
               <label className="appearance-setting-label">Background</label>
               <Card.Root className="appearance-setting-card">
                 <Card.Body className="appearance-setting-body">
-                  <div className="appearance-background-color">
-                    <div className="appearance-button-color">
+                  <div className="appearance-background-color-container">
+                    <div className="appearance-background-color">
                       <ColorPicker.Root
                         value={parseColor(formData.backgroundColor)}
                         onValueChange={(value) =>
@@ -173,7 +213,7 @@ const DashboardAppearance = () => {
                         </Portal>
                       </ColorPicker.Root>
                     </div>
-                    <div className="appearance-button-color">
+                    <div className="appearance-button-container">
                       <Button
                         className="dashboard-appearance-edit-button"
                         variant={"solid"}
@@ -309,8 +349,8 @@ const DashboardAppearance = () => {
               <label className="appearance-setting-label">Fonts</label>
               <Card.Root className="appearance-setting-card">
                 <Card.Body className="appearance-setting-body">
-                  <div className="appearance-font-color">
-                    <div className="appearance-button-color">
+                  <div className="appearance-font-color-container">
+                    <div className="appearance-font-color">
                       <ColorPicker.Root
                         value={parseColor(formData.fontColor)}
                         onValueChange={(value) =>
@@ -340,7 +380,7 @@ const DashboardAppearance = () => {
                         </Portal>
                       </ColorPicker.Root>
                     </div>
-                    <div className="appearance-button-color">
+                    <div className="appearance-button-container">
                       <Button
                         className="dashboard-appearance-edit-button"
                         variant={"solid"}

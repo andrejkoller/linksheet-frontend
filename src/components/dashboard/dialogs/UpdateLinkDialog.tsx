@@ -10,23 +10,22 @@ import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { updateLink } from "../../../services/LinkService";
 import { Link } from "../../../models/Link";
+import { useLinks } from "../../../context/LinksContext";
 
 interface UpdateLinkDialogHandleProps {
   isOpen: boolean;
   onClose: () => void;
   link: Link | null;
-  onUpdatedLink: (updatedLink: Link) => void;
 }
 
 const UpdateLinkDialog = ({
   isOpen,
   onClose,
   link,
-  onUpdatedLink,
 }: UpdateLinkDialogHandleProps) => {
+  const { setLinks } = useLinks();
   const [, setError] = useState<string | null>(null);
   const [formData, setFormData] = useState({
-    id: 0,
     title: "",
     url: "",
     isActive: true,
@@ -36,7 +35,6 @@ const UpdateLinkDialog = ({
   useEffect(() => {
     if (link) {
       setFormData({
-        id: link.id,
         title: link.title,
         url: link.url,
         isActive: link.isActive,
@@ -65,9 +63,16 @@ const UpdateLinkDialog = ({
     }
 
     try {
-      const updatedLink = await updateLink(link!.id, formData);
-      onUpdatedLink(updatedLink);
-      toast.success("Link updated successfully.");
+      if (!link?.id) {
+        toast.error("Invalid link ID.");
+        return;
+      }
+
+      const updatedLink = await updateLink(link.id, formData);
+      toast.success("Link updated!");
+      setLinks((prevLinks) =>
+        prevLinks.map((l) => (l.id === updatedLink.id ? updatedLink : l))
+      );
       onClose();
     } catch (err) {
       if (err instanceof Error) {

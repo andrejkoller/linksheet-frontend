@@ -1,17 +1,17 @@
 import { NavLink } from "react-router-dom";
-import { Link } from "../../models/Link";
 import { useEffect, useState } from "react";
 import { getCurrentUserLinks } from "../../services/LinkService";
 import { getCurrentUserLinkSpace } from "../../services/LinkSpaceService";
 import { getCurrentUser } from "../../services/UserService";
 import { toast } from "react-toastify";
-import { LinkSpace } from "../../models/LinkSpace";
-import { User } from "../../models/User";
+import { useLinks } from "../../context/LinksContext";
+import { useLinkSpace } from "../../context/LinkSpaceContext";
+import { useCurrentUser } from "../../context/CurrentUserContext";
 
 const DashboardSpace = () => {
-  const [currentUser, setCurrentUser] = useState<User | null>(null);
-  const [links, setLinks] = useState<Link[]>([]);
-  const [linkSpace, setLinkSpace] = useState<LinkSpace>({} as LinkSpace);
+  const { currentUser, setCurrentUser } = useCurrentUser();
+  const { links, setLinks } = useLinks();
+  const { linkSpace, setLinkSpace } = useLinkSpace();
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [hoveredLinkId, setHoveredLinkId] = useState<number | null>(null);
@@ -38,7 +38,7 @@ const DashboardSpace = () => {
     };
 
     fetchUser();
-  }, []);
+  }, [setCurrentUser]);
 
   useEffect(() => {
     const fetchLinkSpace = async () => {
@@ -75,7 +75,7 @@ const DashboardSpace = () => {
 
     fetchLinkSpace();
     fetchLinks();
-  }, []);
+  }, [setLinkSpace, setLinks]);
 
   return (
     <div className="dashboard-body-space-container">
@@ -85,7 +85,9 @@ const DashboardSpace = () => {
       >
         <div className="dashboard-body-space-header">
           <div className="profile-banner">
-            {currentUser?.username.substring(0, 1).toUpperCase()}
+            {currentUser?.username
+              ? currentUser?.username.substring(0, 1).toUpperCase()
+              : ""}
           </div>
           <h1
             className="profile-name"
@@ -154,7 +156,9 @@ const DashboardSpace = () => {
                         ? linkSpace?.linkButtonColor
                         : "transparent",
                   }}
-                  onMouseEnter={() => setHoveredLinkId(link.id)}
+                  onMouseEnter={() =>
+                    link.id !== undefined && setHoveredLinkId(link.id)
+                  }
                   onMouseLeave={() => setHoveredLinkId(null)}
                 >
                   <div className="dashboard-space-link-item-content">
