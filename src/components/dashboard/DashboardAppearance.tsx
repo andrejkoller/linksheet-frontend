@@ -14,7 +14,11 @@ import {
   updateLinkSpace,
 } from "../../services/LinkSpaceService";
 import { toast } from "react-toastify";
-import { LinkBorderRadiusType, LinkSpace } from "../../models/LinkSpace";
+import {
+  LinkBorderRadiusType,
+  LinkBorderStyleType,
+  LinkSpace,
+} from "../../models/LinkSpace";
 
 const DashboardAppearance = () => {
   const [linkSpace, setLinkSpace] = useState<LinkSpace | null>(null);
@@ -25,6 +29,7 @@ const DashboardAppearance = () => {
     buttonFontColor: "#ffffff",
     fontColor: "#000000",
     borderRadiusType: LinkBorderRadiusType.NotRounded,
+    borderStyleType: LinkBorderStyleType.Solid,
   });
 
   useEffect(() => {
@@ -36,6 +41,7 @@ const DashboardAppearance = () => {
         buttonFontColor: linkSpace.linkButtonFontColor,
         fontColor: linkSpace.linkPageFontColor,
         borderRadiusType: linkSpace.linkBorderRadius,
+        borderStyleType: linkSpace.linkBorderStyle,
       });
     }
   }, [linkSpace]);
@@ -53,6 +59,7 @@ const DashboardAppearance = () => {
             buttonFontColor: response.linkButtonFontColor,
             fontColor: response.linkPageFontColor,
             borderRadiusType: response.linkBorderRadius,
+            borderStyleType: response.linkBorderStyle,
           });
         }
       } catch (error) {
@@ -81,6 +88,13 @@ const DashboardAppearance = () => {
     }));
   };
 
+  const handleBorderStyleChange = (type: LinkBorderStyleType) => {
+    setFormData((prevState) => ({
+      ...prevState,
+      borderStyleType: type,
+    }));
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -89,7 +103,9 @@ const DashboardAppearance = () => {
       formData.buttonColor ||
       formData.buttonFontColor ||
       formData.fontColor ||
-      formData.borderRadiusType
+      formData.borderRadiusType ||
+      formData.description !== "" ||
+      formData.borderStyleType
     ) {
       const linkSpace: LinkSpace = {
         id: 0,
@@ -99,6 +115,7 @@ const DashboardAppearance = () => {
         linkButtonFontColor: formData.buttonFontColor,
         linkPageFontColor: formData.fontColor,
         linkBorderRadius: formData.borderRadiusType,
+        linkBorderStyle: formData.borderStyleType,
       };
 
       try {
@@ -141,7 +158,9 @@ const DashboardAppearance = () => {
           </p>
           <form onSubmit={handleSubmit}>
             <div className="appearance-setting">
-              <label className="appearance-setting-label">Template Description</label>
+              <label className="appearance-setting-label">
+                Template Description
+              </label>
               <Card.Root className="appearance-setting-card">
                 <Card.Body className="appearance-setting-body">
                   <div className="appearance-description-container">
@@ -175,6 +194,8 @@ const DashboardAppearance = () => {
                 </Card.Body>
               </Card.Root>
             </div>
+          </form>
+          <form onSubmit={handleSubmit}>
             <div className="appearance-setting">
               <label className="appearance-setting-label">Background</label>
               <Card.Root className="appearance-setting-card">
@@ -226,12 +247,41 @@ const DashboardAppearance = () => {
                 </Card.Body>
               </Card.Root>
             </div>
+          </form>
+          <form onSubmit={handleSubmit}>
             <div className="appearance-setting">
               <label className="appearance-setting-label">Buttons</label>
               <div className="button-color">
                 <Card.Root className="appearance-setting-card">
                   <Card.Body className="appearance-setting-body">
                     <div className="appearance-button-color">
+                      <div className="appearance-button-style-wrapper">
+                        <label className="appearance-button-color-label">
+                          Button style
+                        </label>
+                        <div className="appearance-button-style-grid">
+                          {Object.values(LinkBorderStyleType).map((type) => (
+                            <Button
+                              key={type}
+                              variant={"outline"}
+                              className="dashboard-appearance-button"
+                              onClick={() => handleBorderStyleChange(type)}
+                              style={{
+                                backgroundColor:
+                                  formData.borderStyleType === type
+                                    ? "#000000"
+                                    : "#ffffff",
+                                color:
+                                  formData.borderStyleType === type
+                                    ? "#ffffff"
+                                    : "#000000",
+                              }}
+                            >
+                              {formatEnumString(type)}
+                            </Button>
+                          ))}
+                        </div>
+                      </div>
                       <div className="appearance-button-type-wrapper">
                         <label className="appearance-button-color-label">
                           Button type
@@ -345,6 +395,8 @@ const DashboardAppearance = () => {
                 </Card.Root>
               </div>
             </div>
+          </form>
+          <form onSubmit={handleSubmit}>
             <div className="appearance-setting">
               <label className="appearance-setting-label">Fonts</label>
               <Card.Root className="appearance-setting-card">

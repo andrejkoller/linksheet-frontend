@@ -2078,7 +2078,8 @@
   .appearance-setting
   .appearance-button-color
   .appearance-button-type-wrapper
-  label.appearance-button-color-label {
+  label.appearance-button-color-label,
+.appearance-button-style-wrapper label.appearance-button-color-label {
   display: flex;
   margin-bottom: 10px;
   font-size: 14px;
@@ -2089,7 +2090,8 @@
   .dashboard-appearance-body
   .appearance-setting
   .appearance-button-color
-  .appearance-button-type-grid {
+  .appearance-button-type-grid,
+.appearance-button-style-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 20px;
@@ -2134,6 +2136,48 @@
   padding: 20px;
   border-radius: 999px;
   border: 1px solid #000000;
+  background-color: transparent;
+}
+
+.dashboard-appearance-container
+  .dashboard-appearance-content
+  .dashboard-appearance-body
+  .appearance-setting
+  .appearance-button-color
+  .appearance-button-style-grid
+  button:nth-child(1) {
+  width: 100%;
+  padding: 20px;
+  border: 1px solid #000000;
+  border-style: solid;
+  background-color: transparent;
+}
+
+.dashboard-appearance-container
+  .dashboard-appearance-content
+  .dashboard-appearance-body
+  .appearance-setting
+  .appearance-button-color
+  .appearance-button-style-grid
+  button:nth-child(2) {
+  width: 100%;
+  padding: 20px;
+  border: 1px solid #000000;
+  border-style: dotted;
+  background-color: transparent;
+}
+
+.dashboard-appearance-container
+  .dashboard-appearance-content
+  .dashboard-appearance-body
+  .appearance-setting
+  .appearance-button-color
+  .appearance-button-style-grid
+  button:nth-child(3) {
+  width: 100%;
+  padding: 20px;
+  border: 1px solid #000000;
+  border-style: dashed;
   background-color: transparent;
 }
 

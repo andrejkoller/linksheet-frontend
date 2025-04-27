@@ -145,7 +145,14 @@ const DashboardSpace = () => {
                         ? "999px"
                         : "0px",
                     borderWidth: "1px",
-                    borderStyle: "solid",
+                    borderStyle:
+                      linkSpace?.linkBorderStyle === "Solid"
+                        ? "solid"
+                        : linkSpace?.linkBorderStyle === "Dotted"
+                        ? "dotted"
+                        : linkSpace?.linkBorderStyle === "Dashed"
+                        ? "dashed"
+                        : "solid",
                     borderColor: linkSpace?.linkButtonColor,
                     color:
                       hoveredLinkId === link.id
