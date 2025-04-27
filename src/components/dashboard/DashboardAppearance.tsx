@@ -19,9 +19,10 @@ import {
   LinkBorderStyleType,
   LinkSpace,
 } from "../../models/LinkSpace";
+import { useLinkSpace } from "../../context/LinkSpaceContext";
 
 const DashboardAppearance = () => {
-  const [linkSpace, setLinkSpace] = useState<LinkSpace | null>(null);
+  const { linkSpace, setLinkSpace } = useLinkSpace();
   const [formData, setFormData] = useState({
     description: "",
     backgroundColor: "#ffffff",
@@ -72,7 +73,7 @@ const DashboardAppearance = () => {
     };
 
     fetchLinkSpace();
-  }, []);
+  }, [setLinkSpace]);
 
   const handleColorChange = (name: string, value: string) => {
     setFormData((prevState) => ({
@@ -124,6 +125,9 @@ const DashboardAppearance = () => {
         if (response) {
           await updateLinkSpace(response.id, linkSpace);
           toast.success("Linkspace updated!");
+          setLinkSpace({
+            ...linkSpace,
+          });
         } else {
           await createLinkSpace(linkSpace);
           toast.success("Linkspace created!");
@@ -203,7 +207,11 @@ const DashboardAppearance = () => {
                   <div className="appearance-background-color-container">
                     <div className="appearance-background-color">
                       <ColorPicker.Root
-                        value={parseColor(formData.backgroundColor)}
+                        value={
+                          formData.backgroundColor
+                            ? parseColor(formData.backgroundColor)
+                            : parseColor("#ffffff")
+                        }
                         onValueChange={(value) =>
                           handleColorChange(
                             "backgroundColor",
@@ -313,7 +321,11 @@ const DashboardAppearance = () => {
                         <div className="appearance-button-c-picker-wrapper">
                           <div>
                             <ColorPicker.Root
-                              value={parseColor(formData.buttonColor)}
+                              value={
+                                formData.buttonColor
+                                  ? parseColor(formData.buttonColor)
+                                  : parseColor("#000000")
+                              }
                               onValueChange={(value) =>
                                 handleColorChange(
                                   "buttonColor",
@@ -346,7 +358,11 @@ const DashboardAppearance = () => {
                               </Portal>
                             </ColorPicker.Root>
                             <ColorPicker.Root
-                              value={parseColor(formData.buttonFontColor)}
+                              value={
+                                formData.buttonFontColor
+                                  ? parseColor(formData.buttonFontColor)
+                                  : parseColor("#ffffff")
+                              }
                               onValueChange={(value) =>
                                 handleColorChange(
                                   "buttonFontColor",
@@ -404,7 +420,11 @@ const DashboardAppearance = () => {
                   <div className="appearance-font-color-container">
                     <div className="appearance-font-color">
                       <ColorPicker.Root
-                        value={parseColor(formData.fontColor)}
+                        value={
+                          formData.fontColor
+                            ? parseColor(formData.fontColor)
+                            : parseColor("#000000")
+                        }
                         onValueChange={(value) =>
                           handleColorChange("fontColor", value.valueAsString)
                         }
