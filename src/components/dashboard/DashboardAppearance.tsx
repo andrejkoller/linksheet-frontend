@@ -319,7 +319,7 @@ const DashboardAppearance = () => {
                       </div>
                       <div className="appearance-button-color-wrapper">
                         <div className="appearance-button-c-picker-wrapper">
-                          <div>
+                          <div className="appearance-button-c-picker-container">
                             <ColorPicker.Root
                               value={
                                 formData.buttonColor

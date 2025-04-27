@@ -2273,6 +2273,17 @@
   .dashboard-appearance-content
   .dashboard-appearance-body
   .appearance-setting
+  .appearance-button-c-picker-wrapper
+  .appearance-button-c-picker-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.dashboard-appearance-container
+  .dashboard-appearance-content
+  .dashboard-appearance-body
+  .appearance-setting
   .appearance-button-color {
   display: flex;
   flex-direction: column;
@@ -2891,7 +2902,8 @@
     .dashboard-appearance-body
     .appearance-setting
     .appearance-button-color
-    .appearance-button-type-grid {
+    .appearance-button-type-grid,
+  .appearance-button-style-grid {
     grid-template-columns: 1fr;
   }
 
@@ -2922,9 +2934,10 @@
     .dashboard-appearance-content
     .dashboard-appearance-body
     .appearance-setting
-    .appearance-background-color {
+    .appearance-background-color-container {
     flex-direction: column;
     align-items: flex-start;
+    gap: 20px;
   }
 
   .dashboard-appearance-container
@@ -2941,7 +2954,7 @@
     .dashboard-appearance-content
     .dashboard-appearance-body
     .appearance-setting
-    .appearance-font-color {
+    .appearance-font-color-container {
     flex-direction: column;
     align-items: flex-start;
     gap: 20px;
