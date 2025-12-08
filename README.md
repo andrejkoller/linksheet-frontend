@@ -1,86 +1,109 @@
 ## Short description
 
-Linksheet is a modern link-in-bio application that allows users to create a customizable page with multiple links – perfect for social media, portfolios, and personal branding.
+A modern link-in-bio application that allows users to create customizable landing pages with multiple links – perfect for social media profiles, portfolios, and personal branding.
 
-This is the frontend part of the application, built with React and connected to a REST API backend.
+This is the frontend part of the application, built with React and TypeScript, connecting to a REST API backend.
 
-## Features
+## ✨ Features
 
-- Clean and responsive user interface  
-- Create and manage custom links, link spaces, and your personal profile  
-- Connects to backend API for dynamic data  
+- 🎨 Clean & Responsive UI - Beautiful interface that works on all devices
+- 🔗 Link Management - Create, organize, and manage multiple links
+- 🎯 Link Spaces - Group your links into different categories
+- 👤 User Profiles - Customizable personal profile pages
+- 🎭 Appearance Customization - Personalize your link page
+- 🔐 Authentication - Secure user registration and login
 
-## Tech Stack
+## 🛠️ Technologies Used
 
-- React  
-- React Router  
-- React Toastify  
-- Chakra UI (Component Library)  
-- Axios  
-- Vite (development & build tool)  
+- React 19 - Modern React with latest features
+- TypeScript - Type-safe development
+- Vite - Fast build tool and development server
+- Chakra UI - Component library for consistent UI
+- React Router - Client-side routing
+- Axios - HTTP client for API calls
+- React Toastify - Beautiful notifications
+- React Icons - Icon library
 
-## Getting Started
+## 📋 Prerequisites
 
-### 1. Clone the repository
+- Node.js (v18 or higher recommended)
+- npm or yarn
+- Backend API running (default: `https://localhost:7187/api`)
+
+## 📦 Installation
+
+1. Clone the repository
 
 ```bash
 git clone https://github.com/andrejkoller/linksheet-frontend.git
 cd linksheet-frontend
 ```
-### 2. Install dependencies
+
+2. Install dependencies
 
 ```bash
 npm install
 ```
-### 3. Start development server
+
+3. Configure API endpoint
+
+Update the API base URL in `src/services/axios-instance.ts` if your backend runs on a different address:
+
+```typescript
+baseURL: "https://localhost:7187/api"; // Change this to your backend URL
+```
+
+4. Start development server
 
 ```bash
 npm run dev
 ```
 
-## Screenshots
+The application will be available at `http://localhost:5173` (or another port if 5173 is in use).
 
-<div align="center">
-  <div>
-    <img src="https://github.com/user-attachments/assets/606008c6-a5b4-4306-bd0b-9b97f65b9124" alt="Screenshot">
-  </div>
-  <div>
-    <img src="https://github.com/user-attachments/assets/8c2c9599-313b-4c06-9fa3-25cdd07ca508" alt="Screenshot">
-  </div>
-  <div>
-    <img src="https://github.com/user-attachments/assets/98e5656e-788f-425f-b9e7-7a9e6a631cd0" alt="Screenshot">
-  </div>
-  <div>
-    <img src="https://github.com/user-attachments/assets/b601e794-6a80-4817-89d2-d1d103f39ed9" alt="Screenshot">
-  </div>
-  <div>
-    <img src="https://github.com/user-attachments/assets/c1d2c3fa-38da-470e-b5a0-7498d984c053" alt="Screenshot">
-  </div>
-  <div>
-    <img src="https://github.com/user-attachments/assets/4e6043f1-ee1a-491f-8c02-48bb063b56d9" alt="Screenshot">
-  </div>
-  <div>
-    <img src="https://github.com/user-attachments/assets/ec0163f5-ad90-4a4a-82dd-a3dfe77785b1" alt="Screenshot">
-  </div>
-  <div>
-    <img src="https://github.com/user-attachments/assets/53d9137e-75a7-460b-9107-270cfa295cf4" alt="Screenshot">
-  </div>
-  <div>
-    <img src="https://github.com/user-attachments/assets/a60f98c1-ffca-455f-ab70-0144c9e614df" alt="Screenshot">
-  </div>
-  <div>
-    <img src="https://github.com/user-attachments/assets/d1e02ce1-8955-4dcc-b0b8-76d7713411df" alt="Screenshot">
-  </div>
-  <div>
-    <img src="https://github.com/user-attachments/assets/6895b881-957e-42db-8217-d1fd14bd6eb9" alt="Screenshot">
-  </div>
-  <div>
-    <img src="https://github.com/user-attachments/assets/32369644-3563-404d-b045-8b9b0320bf03" alt="Screenshot">
-  </div>
-  <div>
-    <img src="https://github.com/user-attachments/assets/9088de11-7e38-47e4-ab4e-038b84ed4e39" alt="Screenshot">
-  </div>
-  <div>
-    <img src="https://github.com/user-attachments/assets/d5bd1e5d-b999-4786-a1df-90e65dca35b2" alt="Screenshot">
-  </div>
-</div>
+## 🔌 API Integration
+
+The application communicates with a backend API through the axios instance configured in `src/services/axios-instance.ts`.
+
+Key Features:
+
+- Automatic JWT token injection from localStorage
+- Automatic redirect to login on 401 (Unauthorized)
+- Centralized error handling
+
+Services:
+
+- `auth-service.ts` - Authentication (login, register)
+- `user-service.ts` - User management
+- `link-service.ts` - Link CRUD operations
+- `link-space-service.ts` - Link space management
+- `faq-service.ts` - FAQ content
+
+## 🌐 Routes
+
+- `/` - Home page
+- `/login` - User login
+- `/register` - User registration
+- `/templates` - Template gallery
+- `/discover` - Discover other users
+- `/learn` - Learning resources
+- `/dashboard` - User dashboard (protected)
+  - `/dashboard/` - Manage links
+  - `/dashboard/appearance` - Customize appearance
+  - `/dashboard/account` - Account settings
+- `/dashboard/:username` - Public profile page
+
+## 🔐 Authentication
+
+The app uses JWT-based authentication:
+
+1. User logs in via `/login`
+2. JWT token is stored in localStorage
+3. Token is automatically included in API requests
+4. Protected routes redirect to login if token is missing/invalid
+
+## 🔗 Related
+
+- Backend Repository: [Linksheet API](https://github.com/andrejkoller/LinksheetAPI)
+
+## 📸 Screenshots
