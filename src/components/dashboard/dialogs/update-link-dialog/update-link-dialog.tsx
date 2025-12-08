@@ -10,7 +10,7 @@ import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { updateLink } from "../../../../services/link-service";
 import { Link } from "../../../../models/link";
-import { useLinks } from "../../../../context/links-context";
+import { useLinks } from "../../../../hooks/use-links";
 import "./update-link-dialog.css";
 
 interface UpdateLinkDialogHandleProps {

@@ -13,9 +13,9 @@ import DashboardAppearance from "./components/dashboard/dashboard-appearance/das
 import { ToastContainer } from "react-toastify";
 import DashboardAccount from "./components/dashboard/dashboard-account/dashboard-account";
 import Username from "./components/dashboard/username/username";
-import { LinkSpaceProvider } from "./context/link-space-context";
-import { LinksProvider } from "./context/links-context";
-import { UserProvider } from "./context/current-user-context";
+import { LinkSpaceProvider } from "./providers/link-space-provider";
+import { LinksProvider } from "./providers/links-provider";
+import { UserProvider } from "./providers/user-provider";
 
 function App() {
   const location = useLocation();

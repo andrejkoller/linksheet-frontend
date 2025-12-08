@@ -9,7 +9,7 @@ import {
 import { toast } from "react-toastify";
 import AddLinkDialog from "../dialogs/add-link-dialog/add-link-dialog";
 import UpdateLinkDialog from "../dialogs/update-link-dialog/update-link-dialog";
-import { useLinks } from "../../../context/links-context";
+import { useLinks } from "../../../hooks/use-links";
 import "./dashboard-link.css";
 
 function DashboardLink() {

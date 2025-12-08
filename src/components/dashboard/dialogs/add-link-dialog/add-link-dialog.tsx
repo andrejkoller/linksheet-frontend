@@ -9,7 +9,7 @@ import {
 import { useState } from "react";
 import { toast } from "react-toastify";
 import { createLink } from "../../../../services/link-service";
-import { useLinks } from "../../../../context/links-context";
+import { useLinks } from "../../../../hooks/use-links";
 import "./add-link-dialog.css";
 
 interface AddLinkDialogHandleProps {

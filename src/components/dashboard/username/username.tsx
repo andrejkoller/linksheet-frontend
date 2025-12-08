@@ -5,8 +5,8 @@ import { getCurrentUser } from "../../../services/user-service";
 import { toast } from "react-toastify";
 import { NavLink } from "react-router-dom";
 import { User } from "../../../models/user";
-import { useLinks } from "../../../context/links-context";
-import { useLinkSpace } from "../../../context/link-space-context";
+import { useLinks } from "../../../hooks/use-links";
+import { useLinkSpace } from "../../../hooks/use-link-space";
 import "./username.css";
 
 function Username() {

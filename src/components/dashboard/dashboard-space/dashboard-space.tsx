@@ -4,9 +4,9 @@ import { getCurrentUserLinks } from "../../../services/link-service";
 import { getCurrentUserLinkSpace } from "../../../services/link-space-service";
 import { getCurrentUser } from "../../../services/user-service";
 import { toast } from "react-toastify";
-import { useLinks } from "../../../context/links-context";
-import { useLinkSpace } from "../../../context/link-space-context";
-import { useCurrentUser } from "../../../context/current-user-context";
+import { useLinks } from "../../../hooks/use-links";
+import { useLinkSpace } from "../../../hooks/use-link-space";
+import { useCurrentUser } from "../../../hooks/use-current-user";
 import "./dashboard-space.css";
 
 function DashboardSpace() {

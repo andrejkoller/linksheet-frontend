@@ -19,7 +19,7 @@ function DashboardHeader() {
       <div className="dashboard-header-content">
         <div className="dashboard-header-left">
           <div className="dashboard-header-title">
-            <h1>My Linksheet</h1>
+            <h1>Dashboard</h1>
           </div>
         </div>
         <div className="dashboard-header-right">
@@ -78,7 +78,7 @@ function DashboardHeader() {
                       onClick={() => navigate("/dashboard/account")}
                     >
                       <i className="fa-regular fa-user"></i>
-                      <span>Account</span>
+                      <span>My Account</span>
                     </Menu.Item>
                     <Menu.Item value="logout" onClick={handleLogout}>
                       <i className="fa-solid fa-arrow-right-from-bracket"></i>

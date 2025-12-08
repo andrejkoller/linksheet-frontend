@@ -3,7 +3,7 @@ import { getCurrentUser, updateUser } from "../../../services/user-service";
 import { Button, Card, Input, Spinner } from "@chakra-ui/react";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
-import { useCurrentUser } from "../../../context/current-user-context";
+import { useCurrentUser } from "../../../hooks/use-current-user";
 import "./dashboard-account.css";
 
 function DashboardAccount() {

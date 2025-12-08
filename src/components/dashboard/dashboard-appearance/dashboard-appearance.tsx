@@ -19,7 +19,7 @@ import {
   LinkBorderStyleType,
   LinkSpace,
 } from "../../../models/link-space";
-import { useLinkSpace } from "../../../context/link-space-context";
+import { useLinkSpace } from "../../../hooks/use-link-space";
 import "./dashboard-appearance.css";
 
 function DashboardAppearance() {
