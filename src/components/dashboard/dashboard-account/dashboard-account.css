@@ -154,3 +154,21 @@
   background-color: #5a2b8c;
   transition: background-color 0.3s ease;
 }
+
+/* Media Queries */
+@media all and (max-width: 1024px) {
+  .dashboard-account-container {
+    width: 100%;
+    padding: 0 5vw;
+  }
+}
+
+@media all and (max-width: 768px) {
+  .dashboard-account-container
+    .dashboard-account-content
+    .dashboard-account-info-body
+    .dashboard-account-info-item
+    .dashboard-account-info-username-email-wrapper {
+    flex-direction: column;
+  }
+}

@@ -56,3 +56,16 @@
   color: #e9c0e9;
   text-align: left;
 }
+
+/* Media Queries */
+@media all and (max-width: 1440px) {
+  .faq .faq-container .faq-content {
+    width: 80%;
+  }
+}
+
+@media all and (max-width: 768px) {
+  .faq .faq-container .faq-content .faq-title h1 {
+    font-size: 2.5em;
+  }
+}

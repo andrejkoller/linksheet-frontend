@@ -198,3 +198,24 @@
   background-color: #e0b3e0;
   transition: background-color 0.3s ease;
 }
+
+/* Media Queries */
+@media all and (max-width: 1440px) {
+  .templates-container .templates-content .templates-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media all and (max-width: 1024px) {
+  .templates-container .templates-content .templates-header h1 {
+    font-size: 2.5em;
+  }
+
+  .templates-container .templates-content .templates-header p {
+    font-size: 1.2em;
+  }
+
+  .templates-container .templates-content .templates-list {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

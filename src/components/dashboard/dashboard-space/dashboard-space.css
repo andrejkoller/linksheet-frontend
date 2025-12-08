@@ -8,7 +8,7 @@
   box-shadow: -1px 0px 0px 0px rgba(0, 0, 0, 0.1);
   position: fixed;
   right: 0;
-  height: calc(100% - 10vh);
+  height: calc(100% - 64px);
 }
 
 .dashboard-body .dashboard-body-space-container .dashboard-body-space-content {
@@ -149,4 +149,17 @@
   align-items: center;
   gap: 10px;
   font-family: "Poppins-Regular";
+}
+
+/* Media Queries */
+@media all and (max-width: 1440px) {
+  .dashboard-body .dashboard-body-space-container {
+    width: 35%;
+  }
+}
+
+@media all and (max-width: 1024px) {
+  .dashboard-space {
+    display: none;
+  }
 }

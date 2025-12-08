@@ -107,3 +107,22 @@
   color: #780016;
   font-family: "Poppins-Regular";
 }
+
+/* Media Queries */
+@media all and (max-width: 768px) {
+  .login .login-container .login-content .login-form form {
+    width: 400px;
+  }
+}
+
+@media all and (max-width: 425px) {
+  .login .login-container .login-content .login-form form {
+    width: 350px;
+  }
+}
+
+@media all and (max-width: 375px) {
+  .login .login-container .login-content .login-form form {
+    width: 300px;
+  }
+}

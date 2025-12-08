@@ -146,3 +146,22 @@
   font-family: "Poppins-Semibold";
   font-size: 16px;
 }
+
+/* Media Queries */
+@media all and (max-width: 768px) {
+  .username-container .username-content .username-links .username-link-item {
+    width: 420px;
+  }
+}
+
+@media all and (max-width: 425px) {
+  .username-container .username-content .username-links .username-link-item {
+    width: 320px;
+  }
+}
+
+@media all and (max-width: 375px) {
+  .username-container .username-content .username-links .username-link-item {
+    width: 280px;
+  }
+}

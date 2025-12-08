@@ -123,3 +123,26 @@
   color: #780016;
   font-family: "Poppins-Regular";
 }
+
+/* Media Queries */
+@media all and (max-width: 768px) {
+  .register .register-container .register-content .register-title h1 {
+    font-size: 2.5em;
+  }
+
+  .register .register-container .register-content .register-form form {
+    width: 400px;
+  }
+}
+
+@media all and (max-width: 425px) {
+  .register .register-container .register-content .register-form form {
+    width: 350px;
+  }
+}
+
+@media all and (max-width: 375px) {
+  .register .register-container .register-content .register-form form {
+    width: 300px;
+  }
+}
