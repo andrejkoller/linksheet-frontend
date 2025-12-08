@@ -114,6 +114,7 @@
   padding-bottom: 32px;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
+  gap: 32px;
 }
 
 .footer
