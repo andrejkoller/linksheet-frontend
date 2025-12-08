@@ -17,7 +17,7 @@ const DashboardSidebar = () => {
               className={({ isActive }) => (isActive ? "active" : "")}
             >
               <i className="fa-solid fa-table-columns"></i>
-              <span>My Linktree</span>
+              <span>My Linksheet</span>
             </NavLink>
           </div>
           <div className="dashboard-sidebar-menu-item">
