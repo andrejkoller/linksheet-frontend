@@ -108,15 +108,15 @@ The app uses JWT-based authentication:
 
 ## 📸 Screenshots
 
-<img width="1920" height="1080" alt="Screenshot 1" src="https://github.com/user-attachments/assets/137895fe-3069-4f86-b8f6-cfe40e5cbc47" />
-<img width="1920" height="1080" alt="Screenshot 2" src="https://github.com/user-attachments/assets/e9ab962d-02be-42d7-abf8-78248e7f3103" />
-<img width="1920" height="1080" alt="Screenshot 3" src="https://github.com/user-attachments/assets/01c10e18-d0ea-442d-a7a5-0528af6b4488" />
-<img width="1920" height="1080" alt="Screenshot 4" src="https://github.com/user-attachments/assets/207beece-d22a-4b04-aaef-350a36aea516" />
-<img width="1920" height="1080" alt="Screenshot 5" src="https://github.com/user-attachments/assets/d1163d7d-50d7-4afc-970b-36898ec64167" />
-<img width="1920" height="1080" alt="Screenshot 6" src="https://github.com/user-attachments/assets/b79bed7a-2fe4-4ab3-89ec-820d50e0c30d" />
-<img width="1920" height="1080" alt="Screenshot 7" src="https://github.com/user-attachments/assets/63588eb8-11b1-48d3-891b-261f95dfbba2" />
-<img width="1920" height="1080" alt="Screenshot 8" src="https://github.com/user-attachments/assets/7c647b94-2072-44ae-b87f-1c3747a9a441" />
-<img width="1920" height="1080" alt="Screenshot 9" src="https://github.com/user-attachments/assets/82598bb2-dab8-4aec-96c3-7ef66df5c36b" />
-<img width="1920" height="1080" alt="Screenshot 10" src="https://github.com/user-attachments/assets/767b342d-1e03-455a-a8d8-73b74524a1f9" />
-<img width="1920" height="1080" alt="Screenshot 11" src="https://github.com/user-attachments/assets/b8b8bab2-cad5-4c37-8a1f-9eefa78781af" />
-<img width="1920" height="1080" alt="Screenshot 12" src="https://github.com/user-attachments/assets/c5985dfc-7179-4d4e-bae7-58fa1b3588a8" />
+<img width="1920" height="1080" alt="Screenshot 1" src="https://github.com/user-attachments/assets/39be858d-a36f-4f44-b8f2-e1970952faa1" />
+<img width="1920" height="1080" alt="Screenshot 2" src="https://github.com/user-attachments/assets/b730600e-ca14-40ae-9f75-6aed5c1e30e4" />
+<img width="1920" height="1080" alt="Screenshot 3" src="https://github.com/user-attachments/assets/85e6df84-ff6b-4972-ad4f-3da9094f294f" />
+<img width="1920" height="1080" alt="Screenshot 4" src="https://github.com/user-attachments/assets/73fd9064-474a-4467-8f26-68db9f880f02" />
+<img width="1920" height="1080" alt="Screenshot 5" src="https://github.com/user-attachments/assets/61a0f800-6dd4-406e-b549-5926e4d525bb" />
+<img width="1920" height="1080" alt="Screenshot 6" src="https://github.com/user-attachments/assets/f817158b-d24a-493c-9d4c-b3cd3c22efb4" />
+<img width="1920" height="1080" alt="Screenshot 7" src="https://github.com/user-attachments/assets/763c9a43-a3f3-4f70-afdf-a0410754f330" />
+<img width="1920" height="1080" alt="Screenshot 8" src="https://github.com/user-attachments/assets/cd8ff5ec-1add-4d80-a5de-9487b5f81396" />
+<img width="1920" height="1080" alt="Screenshot 9" src="https://github.com/user-attachments/assets/29286904-812d-4ecd-a7f3-0526bf6fca08" />
+<img width="1920" height="1080" alt="Screenshot 10" src="https://github.com/user-attachments/assets/a5c7759e-40f3-4f6d-9c95-346027df6380" />
+<img width="1920" height="1080" alt="Screenshot 11" src="https://github.com/user-attachments/assets/e153f7c4-a328-46f9-ada9-da3b42b66b5a" />
+<img width="1920" height="1080" alt="Screenshot 12" src="https://github.com/user-attachments/assets/2c8ee2f6-f615-4a10-b648-c2fb8e410416" />
