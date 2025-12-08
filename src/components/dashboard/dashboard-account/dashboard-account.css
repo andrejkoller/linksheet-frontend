@@ -51,6 +51,14 @@
 
 .dashboard-account-container
   .dashboard-account-content
+  .dashboard-account-info-details
+  > div {
+  border: none !important;
+  border-radius: 12px !important;
+}
+
+.dashboard-account-container
+  .dashboard-account-content
   .dashboard-account-info-body {
   display: flex;
   flex-direction: column;
@@ -58,6 +66,7 @@
   align-items: center;
   width: 100%;
   background-color: #ffffff;
+  border: none;
   border-radius: 12px;
   padding: 20px 32px;
   gap: 20px;
@@ -127,10 +136,23 @@
 .dashboard-account-container
   .dashboard-account-content
   .dashboard-account-info-body
+  .dashboard-account-info-description
+  textarea {
+  min-height: 120px;
+  padding: 15px;
+  font-family: "Poppins-Regular";
+  font-size: 1em;
+}
+
+.dashboard-account-container
+  .dashboard-account-content
+  .dashboard-account-info-body
   .dashboard-account-info-footer {
   display: flex;
   justify-content: flex-end;
   width: 100%;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .dashboard-account-container

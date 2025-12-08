@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getCurrentUser, updateUser } from "../../../services/user-service";
-import { Button, Card, Input, Spinner } from "@chakra-ui/react";
+import { Button, Card, Input, Spinner, Textarea } from "@chakra-ui/react";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { useCurrentUser } from "../../../hooks/use-current-user";
@@ -141,13 +141,13 @@ function DashboardAccount() {
                               <label className="dashboard-account-info-label">
                                 Description
                               </label>
-                              <Input
+                              <Textarea
                                 className="dashboard-account-info-description"
                                 variant={"outline"}
-                                type="text"
                                 id="description"
                                 name="description"
                                 placeholder="Enter your description"
+                                autoresize={true}
                                 value={currentUser.description}
                                 onChange={(e) =>
                                   setCurrentUser({
@@ -165,7 +165,7 @@ function DashboardAccount() {
                             variant={"solid"}
                             type="submit"
                           >
-                            Edit Profile
+                            Save Changes
                           </Button>
                         </Card.Footer>
                       </Card.Body>

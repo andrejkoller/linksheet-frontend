@@ -192,7 +192,7 @@ function DashboardAppearance() {
                         variant={"solid"}
                         type="submit"
                       >
-                        Save
+                        Save Changes
                       </Button>
                     </div>
                   </div>
@@ -249,7 +249,7 @@ function DashboardAppearance() {
                         variant={"solid"}
                         type="submit"
                       >
-                        Save
+                        Save Changes
                       </Button>
                     </div>
                   </div>
@@ -402,7 +402,7 @@ function DashboardAppearance() {
                               variant={"solid"}
                               type="submit"
                             >
-                              Save
+                              Save Changes
                             </Button>
                           </div>
                         </div>
@@ -459,7 +459,7 @@ function DashboardAppearance() {
                         variant={"solid"}
                         type="submit"
                       >
-                        Save
+                        Save Changes
                       </Button>
                     </div>
                   </div>
