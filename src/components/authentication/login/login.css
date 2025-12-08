@@ -1,0 +1,109 @@
+.login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+}
+
+.login .login-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  background-color: #ffffff;
+}
+
+.login .login-container .login-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
+  padding: 128px 0;
+}
+
+.login .login-container .login-content .login-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.login .login-container .login-content .login-title h1 {
+  font-family: "Poppins-Black";
+  font-size: 3.5em;
+  color: #780016;
+}
+
+.login .login-container .login-content .login-form {
+  margin: 40px auto;
+}
+
+.login .login-container .login-content .login-form form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  gap: 20px;
+}
+
+.login .login-container .login-content .login-form form .login-form-item {
+  width: 100%;
+}
+
+.login .login-container .login-content .login-form form .login-form-item input {
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
+.login .login-container .login-content .login-form form .button-container {
+  width: 100%;
+}
+
+.login
+  .login-container
+  .login-content
+  .login-form
+  form
+  .button-container
+  button {
+  width: 100%;
+  background-color: #4f2173;
+  border-radius: 999px;
+  padding: 25px 50px;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 1em;
+  font-family: "Poppins-Regular";
+}
+
+.login
+  .login-container
+  .login-content
+  .login-form
+  form
+  .button-container
+  button:hover {
+  background-color: #5a2b8c;
+  transition: background-color 0.3s ease;
+}
+
+.login .login-container .login-content .login-footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.login .login-container .login-content .login-footer a {
+  text-decoration: underline;
+  color: #780016;
+  font-family: "Poppins-Regular";
+}

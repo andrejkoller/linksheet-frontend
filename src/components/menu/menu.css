@@ -1,0 +1,141 @@
+.menu-overlay {
+  display: flex;
+  width: 100%;
+  position: fixed;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 66vh;
+  width: 100%;
+  position: fixed;
+  top: 100vh;
+  z-index: 999;
+  background-color: #ffffff;
+  border-top-left-radius: 32px;
+  border-top-right-radius: 32px;
+}
+
+.menu-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.menu-container .menu-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  padding: 0 5vw;
+}
+
+.menu-container .menu-content .menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 15vh;
+  width: 100%;
+}
+
+.menu-container .menu-content .menu-header .menu-title {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.menu-container .menu-content .menu-header .menu-title h1 {
+  font-family: "Poppins-Bold";
+  font-size: 2em;
+  margin: 0;
+}
+
+.menu-container .menu-content .menu-header .menu-close-icon {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: #1e2330;
+  padding: 20px 25px;
+  border-radius: 999px;
+  color: #ffffff;
+}
+
+.menu-container .menu-content .menu-header .menu-close-icon i {
+  font-size: 2em;
+  cursor: pointer;
+}
+
+.menu-container .menu-content .menu-items {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: 100%;
+  width: 100%;
+}
+
+.menu-container .menu-content .menu-items .menu-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  padding: 20px 0;
+}
+
+.menu-container .menu-content .menu-items .menu-item a {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  width: 100%;
+}
+
+.menu-container .menu-content .menu-items .menu-auth {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+}
+
+.menu-container .menu-content .menu-items .menu-auth .menu-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background-color: #1e2330;
+  padding: 25px 50px;
+  color: #ffffff;
+  font-weight: 600;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.menu-container .menu-content .menu-items .menu-auth .menu-item:first-child {
+  border-radius: 4px;
+}
+
+.menu-container .menu-content .menu-items .menu-auth .menu-item:nth-child(2) {
+  border-radius: 999px;
+}
+
+.menu-open {
+  top: 34vh;
+  transition: top 0.3s ease;
+}
+
+.menu-close {
+  top: 100vh;
+  transition: top 0.3s ease;
+}

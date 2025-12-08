@@ -1,5 +1,5 @@
-import { Link } from "./Link";
-import { LinkSpace } from "./LinkSpace";
+import { Link } from "./link";
+import { LinkSpace } from "./link-space";
 
 export interface User {
   id: number;

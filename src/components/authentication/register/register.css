@@ -1,0 +1,125 @@
+.register {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+}
+
+.register .register-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  background-color: #ffffff;
+}
+
+.register .register-container .register-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
+  padding: 128px 0;
+}
+
+.register .register-container .register-content .register-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.register .register-container .register-content .register-title h1 {
+  font-family: "Poppins-Black";
+  font-size: 3.5em;
+  color: #780016;
+}
+
+.register .register-container .register-content .register-form {
+  margin: 40px auto;
+}
+
+.register .register-container .register-content .register-form form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  gap: 20px;
+}
+
+.register
+  .register-container
+  .register-content
+  .register-form
+  form
+  .form-group {
+  width: 100%;
+}
+
+.register
+  .register-container
+  .register-content
+  .register-form
+  form
+  .form-group
+  input {
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
+.register
+  .register-container
+  .register-content
+  .register-form
+  form
+  .button-container {
+  width: 100%;
+}
+
+.register
+  .register-container
+  .register-content
+  .register-form
+  form
+  .button-container
+  button {
+  width: 100%;
+  background-color: #4f2173;
+  border-radius: 999px;
+  padding: 25px 50px;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 1em;
+  font-family: "Poppins-Regular";
+}
+
+.register
+  .register-container
+  .register-content
+  .register-form
+  form
+  .button-container
+  button:hover {
+  background-color: #5a2b8c;
+  transition: background-color 0.3s ease;
+}
+
+.register .register-container .register-content .register-footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.register .register-container .register-content .register-footer a {
+  text-decoration: underline;
+  color: #780016;
+  font-family: "Poppins-Regular";
+}

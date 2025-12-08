@@ -1,0 +1,99 @@
+.dashboard-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 10vh;
+  width: 100%;
+  box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.1);
+  background-color: #f3f3f1;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.dashboard-header .dashboard-header-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.dashboard-header .dashboard-header-container .dashboard-header-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  padding: 0 2.5vw;
+}
+
+.dashboard-header
+  .dashboard-header-container
+  .dashboard-header-content
+  .dashboard-header-left {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
+  width: 50%;
+}
+
+.dashboard-header
+  .dashboard-header-container
+  .dashboard-header-content
+  .dashboard-header-left
+  .dashboard-header-title
+  h1 {
+  font-family: "Poppins-Medium";
+  font-size: 1.2em;
+}
+
+.dashboard-header
+  .dashboard-header-container
+  .dashboard-header-content
+  .dashboard-header-right {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 20px;
+  height: 100%;
+  width: 50%;
+}
+
+.dashboard-header
+  .dashboard-header-container
+  .dashboard-header-content
+  .dashboard-header-right
+  .dashboard-header-profile
+  button {
+  font-family: "Poppins-Medium";
+  font-size: 1em;
+  background-color: #ffffff;
+  border-radius: 12px;
+}
+
+.dashboard-header
+  .dashboard-header-container
+  .dashboard-header-content
+  .dashboard-header-right
+  .dashboard-header-actions-menu {
+  display: none;
+}
+
+.dashboard-header
+  .dashboard-header-container
+  .dashboard-header-content
+  .dashboard-header-right
+  .dashboard-header-actions-menu
+  button {
+  font-family: "Poppins-Medium";
+  font-size: 1em;
+  background-color: #ffffff;
+  border-radius: 12px;
+}

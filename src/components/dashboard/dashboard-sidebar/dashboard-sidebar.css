@@ -1,0 +1,95 @@
+.dashboard-sidebar .dashboard-sidebar-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  padding: 0 1.5vw;
+  background-color: #ededeb;
+}
+
+.dashboard-sidebar .dashboard-sidebar-container .dashboard-sidebar-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.dashboard-sidebar
+  .dashboard-sidebar-container
+  .dashboard-sidebar-content
+  .dashboard-sidebar-title {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 10vh;
+  width: 100%;
+}
+
+.dashboard-sidebar
+  .dashboard-sidebar-container
+  .dashboard-sidebar-content
+  .dashboard-sidebar-title
+  h1 {
+  font-family: "Poppins-Bold";
+  font-size: 2em;
+}
+
+.dashboard-sidebar
+  .dashboard-sidebar-container
+  .dashboard-sidebar-content
+  .dashboard-sidebar-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+  height: 90vh;
+  width: 100%;
+}
+
+.dashboard-sidebar
+  .dashboard-sidebar-container
+  .dashboard-sidebar-content
+  .dashboard-sidebar-menu
+  .dashboard-sidebar-menu-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.dashboard-sidebar
+  .dashboard-sidebar-container
+  .dashboard-sidebar-content
+  .dashboard-sidebar-menu
+  .dashboard-sidebar-menu-item
+  a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: inherit;
+  padding: 10px 15px;
+  width: 100%;
+  border-radius: 12px;
+}
+
+.dashboard-sidebar
+  .dashboard-sidebar-container
+  .dashboard-sidebar-content
+  .dashboard-sidebar-menu
+  .dashboard-sidebar-menu-item
+  a:hover {
+  background-color: #d9d9d7;
+  transition: background-color 0.3s ease;
+}
+
+.active {
+  background-color: #d9d9d7;
+}

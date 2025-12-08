@@ -1,0 +1,152 @@
+.dashboard-body .dashboard-body-space-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 25%;
+  margin-left: auto;
+  box-shadow: -1px 0px 0px 0px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  right: 0;
+  height: calc(100% - 10vh);
+}
+
+.dashboard-body .dashboard-body-space-container .dashboard-body-space-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 330px;
+  min-height: 625px;
+  margin: auto;
+  border-radius: 24px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  overflow-y: auto;
+}
+
+.dashboard-body
+  .dashboard-body-space-container
+  .dashboard-body-space-content
+  .dashboard-body-space-header {
+  margin: 40px 0 20px 0;
+  text-align: center;
+}
+
+.dashboard-body
+  .dashboard-body-space-container
+  .dashboard-body-space-content
+  .dashboard-body-space-header
+  .profile-banner {
+  background-color: #000000;
+  color: #ffffff;
+  text-align: center;
+  border-radius: 999px;
+  width: 72px;
+  height: 72px;
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.dashboard-body
+  .dashboard-body-space-container
+  .dashboard-body-space-content
+  .dashboard-body-space-header
+  h1 {
+  font-family: "Poppins-Bold";
+  font-size: 14px;
+  text-align: center;
+}
+
+.dashboard-body
+  .dashboard-body-space-container
+  .dashboard-body-space-content
+  .dashboard-body-space-header
+  span {
+  font-family: "Poppins-Regular";
+  font-size: 12px;
+  text-align: center;
+}
+
+.dashboard-body
+  .dashboard-body-space-container
+  .dashboard-body-space-content
+  .dashboard-body-space-link-items {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  max-height: 50vh;
+  width: 100%;
+}
+
+.dashboard-body
+  .dashboard-body-space-container
+  .dashboard-body-space-content
+  .dashboard-body-space-link-items
+  .notifications {
+  font-size: 14px;
+  position: relative;
+  top: 0;
+  margin-bottom: 20px;
+  text-align: center;
+  width: 75%;
+}
+
+.dashboard-body
+  .dashboard-body-space-container
+  .dashboard-body-space-content
+  .dashboard-body-space-link-items
+  .dashboard-space-link-item {
+  font-family: "Poppins-Regular";
+  padding: 16px 44px;
+  width: 75%;
+  text-align: center;
+  font-size: 12px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.dashboard-body
+  .dashboard-body-space-container
+  .dashboard-body-space-content
+  .dashboard-body-space-link-items
+  .dashboard-space-link-item:hover {
+  transition: background-color 0.3s ease;
+}
+
+.dashboard-body
+  .dashboard-body-space-container
+  .dashboard-body-space-content
+  .dashboard-body-space-link-items
+  .dashboard-space-link-item
+  a {
+  width: 100%;
+  display: inline-block;
+}
+
+.dashboard-body .dashboard-body-space-container .dashboard-body-space-link {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.dashboard-body
+  .dashboard-body-space-container
+  .dashboard-body-space-link
+  .dashboard-body-space-link-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-family: "Poppins-Regular";
+}

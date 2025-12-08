@@ -1,0 +1,285 @@
+.dashboard-appearance-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 75%;
+  height: 100%;
+  min-height: 90vh;
+  margin-right: auto;
+  padding: 0 10vw;
+}
+
+.dashboard-appearance-container .dashboard-appearance-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.dashboard-appearance-container
+  .dashboard-appearance-content
+  .dashboard-appearance-header {
+  width: 100%;
+}
+
+.dashboard-appearance-container
+  .dashboard-appearance-content
+  .dashboard-appearance-header
+  h1 {
+  font-family: "Poppins-Bold";
+  font-size: 1.2em;
+  color: #000000;
+  margin: 20px 0;
+  text-align: left;
+}
+
+.dashboard-appearance-container
+  .dashboard-appearance-content
+  .dashboard-appearance-body {
+  width: 100%;
+}
+
+.dashboard-appearance-container
+  .dashboard-appearance-content
+  p.dashboard-appearance-description {
+  font-family: "Poppins-Regular";
+  font-size: 1em;
+  color: #000000;
+  margin-bottom: 20px;
+}
+
+.dashboard-appearance-container
+  .dashboard-appearance-content
+  .dashboard-appearance-body
+  label.appearance-setting-label {
+  display: flex;
+  margin-bottom: 10px;
+  font-family: "Poppins-Semibold";
+  font-size: 1em;
+  color: #000000;
+}
+
+.dashboard-appearance-container
+  .dashboard-appearance-content
+  .dashboard-appearance-body
+  .appearance-setting
+  .appearance-button-color
+  .appearance-button-type-wrapper
+  label.appearance-button-color-label,
+.appearance-button-style-wrapper label.appearance-button-color-label {
+  display: flex;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.dashboard-appearance-container
+  .dashboard-appearance-content
+  .dashboard-appearance-body
+  .appearance-setting
+  .appearance-button-color
+  .appearance-button-type-grid,
+.appearance-button-style-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}
+
+.dashboard-appearance-container
+  .dashboard-appearance-content
+  .dashboard-appearance-body
+  .appearance-setting
+  .appearance-button-color
+  .appearance-button-type-grid
+  button:nth-child(1) {
+  width: 100%;
+  padding: 20px;
+  border-radius: 0px;
+  border: 1px solid #000000;
+  background-color: transparent;
+}
+
+.dashboard-appearance-container
+  .dashboard-appearance-content
+  .dashboard-appearance-body
+  .appearance-setting
+  .appearance-button-color
+  .appearance-button-type-grid
+  button:nth-child(2) {
+  width: 100%;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #000000;
+  background-color: transparent;
+}
+
+.dashboard-appearance-container
+  .dashboard-appearance-content
+  .dashboard-appearance-body
+  .appearance-setting
+  .appearance-button-color
+  .appearance-button-type-grid
+  button:nth-child(3) {
+  width: 100%;
+  padding: 20px;
+  border-radius: 999px;
+  border: 1px solid #000000;
+  background-color: transparent;
+}
+
+.dashboard-appearance-container
+  .dashboard-appearance-content
+  .dashboard-appearance-body
+  .appearance-setting
+  .appearance-button-color
+  .appearance-button-style-grid
+  button:nth-child(1) {
+  width: 100%;
+  padding: 20px;
+  border: 1px solid #000000;
+  border-style: solid;
+  background-color: transparent;
+}
+
+.dashboard-appearance-container
+  .dashboard-appearance-content
+  .dashboard-appearance-body
+  .appearance-setting
+  .appearance-button-color
+  .appearance-button-style-grid
+  button:nth-child(2) {
+  width: 100%;
+  padding: 20px;
+  border: 1px solid #000000;
+  border-style: dotted;
+  background-color: transparent;
+}
+
+.dashboard-appearance-container
+  .dashboard-appearance-content
+  .dashboard-appearance-body
+  .appearance-setting
+  .appearance-button-color
+  .appearance-button-style-grid
+  button:nth-child(3) {
+  width: 100%;
+  padding: 20px;
+  border: 1px solid #000000;
+  border-style: dashed;
+  background-color: transparent;
+}
+
+.dashboard-appearance-container
+  .dashboard-appearance-content
+  .dashboard-appearance-body
+  .appearance-setting
+  input:not(.appearance-description-input) {
+  width: 100%;
+  padding: 25px;
+  border-radius: 12px;
+  border: none;
+  background-color: #f3f3f1;
+  color: #000000;
+  font-family: "Poppins-Regular";
+  font-size: 1em;
+}
+.dashboard-appearance-container
+  .dashboard-appearance-content
+  .dashboard-appearance-body
+  .appearance-setting
+  input:focus:not(.appearance-description-input) {
+  outline: none;
+  box-shadow: 0 0 0 2px #d2e823;
+}
+
+.dashboard-appearance-container
+  .dashboard-appearance-content
+  .dashboard-appearance-body
+  .appearance-setting
+  .dashboard-appearance-edit-button {
+  background-color: #4f2173;
+  border-radius: 999px;
+  padding: 25px 50px;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+.dashboard-appearance-container
+  .dashboard-appearance-content
+  .dashboard-appearance-body
+  .appearance-setting
+  .dashboard-appearance-edit-button:hover {
+  background-color: #5a2b8c;
+  transition: background-color 0.3s ease;
+}
+
+.dashboard-appearance-container
+  .dashboard-appearance-content
+  .dashboard-appearance-body
+  .appearance-setting
+  .appearance-description-container
+  .appearance-button-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.dashboard-appearance-container
+  .dashboard-appearance-content
+  .dashboard-appearance-body
+  .appearance-setting
+  .appearance-description-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.dashboard-appearance-container
+  .dashboard-appearance-content
+  .dashboard-appearance-body
+  .appearance-setting
+  .appearance-background-color-container,
+.appearance-font-color-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.dashboard-appearance-container
+  .dashboard-appearance-content
+  .dashboard-appearance-body
+  .appearance-setting
+  .appearance-button-c-picker-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.dashboard-appearance-container
+  .dashboard-appearance-content
+  .dashboard-appearance-body
+  .appearance-setting
+  .appearance-button-c-picker-wrapper
+  .appearance-button-c-picker-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.dashboard-appearance-container
+  .dashboard-appearance-content
+  .dashboard-appearance-body
+  .appearance-setting
+  .appearance-button-color {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.appearance-setting {
+  margin-bottom: 20px;
+}

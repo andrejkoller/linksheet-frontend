@@ -1,9 +1,10 @@
 import { Outlet } from "react-router-dom";
-import DashboardHeader from "./DashboardHeader";
-import DashboardSidebar from "./DashboardSidebar";
-import DashboardSpace from "./DashboardSpace";
+import DashboardHeader from "./dashboard-header/dashboard-header";
+import DashboardSidebar from "./dashboard-sidebar/dashboard-sidebar";
+import DashboardSpace from "./dashboard-space/dashboard-space";
+import "./dashboard.css";
 
-const Dashboard = () => {
+function Dashboard() {
   return (
     <div className="dashboard">
       <div className="dashboard-container">
@@ -26,6 +27,6 @@ const Dashboard = () => {
       </div>
     </div>
   );
-};
+}
 
 export default Dashboard;

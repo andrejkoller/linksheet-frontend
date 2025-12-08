@@ -1,0 +1,156 @@
+.dashboard-account-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 75%;
+  height: 100%;
+  min-height: 90vh;
+  margin-right: auto;
+  padding: 0 10vw;
+}
+
+.dashboard-account-container .dashboard-account-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.dashboard-account-container
+  .dashboard-account-content
+  .dashboard-account-header {
+  width: 100%;
+}
+
+.dashboard-account-container
+  .dashboard-account-content
+  .dashboard-account-header
+  h1 {
+  font-family: "Poppins-Bold";
+  font-size: 1.2em;
+  color: #000000;
+  margin: 20px 0;
+  text-align: left;
+}
+
+.dashboard-account-container
+  .dashboard-account-content
+  .dashboard-account-body {
+  width: 100%;
+}
+
+.dashboard-account-container
+  .dashboard-account-content
+  p.dashboard-account-description {
+  font-family: "Poppins-Regular";
+  font-size: 1em;
+  color: #000000;
+  margin-bottom: 20px;
+}
+
+.dashboard-account-container
+  .dashboard-account-content
+  .dashboard-account-info-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 20px 32px;
+  gap: 20px;
+}
+
+.dashboard-account-container
+  .dashboard-account-content
+  .dashboard-account-info-body {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 20px;
+}
+
+.dashboard-account-container
+  .dashboard-account-content
+  .dashboard-account-info-body
+  .dashboard-account-info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
+.dashboard-account-container
+  .dashboard-account-content
+  .dashboard-account-info-body
+  .dashboard-account-info-item
+  .dashboard-account-info-username-email-wrapper {
+  display: flex;
+  gap: 20px;
+}
+
+.dashboard-account-container
+  .dashboard-account-content
+  .dashboard-account-info-body
+  p {
+  width: 100%;
+}
+
+.dashboard-account-container
+  .dashboard-account-content
+  .dashboard-account-info-body
+  .dashboard-account-info-content
+  .dashboard-account-info-name {
+  width: 100%;
+}
+
+.dashboard-account-container
+  .dashboard-account-content
+  .dashboard-account-info-body
+  .dashboard-account-info-email {
+  width: 100%;
+}
+
+.dashboard-account-container
+  .dashboard-account-content
+  .dashboard-account-info-body
+  .dashboard-account-info-label {
+  display: flex;
+  margin-bottom: 8px;
+  font-family: "Poppins-Semibold";
+  font-size: 1em;
+  color: #000000;
+}
+
+.dashboard-account-container
+  .dashboard-account-content
+  .dashboard-account-info-body
+  .dashboard-account-info-footer {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.dashboard-account-container
+  .dashboard-account-content
+  .dashboard-account-info-body
+  .dashboard-account-info-footer
+  button {
+  background-color: #4f2173;
+  border-radius: 999px;
+  padding: 25px 50px;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+.dashboard-account-container
+  .dashboard-account-content
+  .dashboard-account-info-body
+  .dashboard-account-info-footer
+  button:hover {
+  background-color: #5a2b8c;
+  transition: background-color 0.3s ease;
+}

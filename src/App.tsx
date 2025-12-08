@@ -1,21 +1,21 @@
 import "./App.css";
-import Home from "./components/Home";
-import Header from "./components/Header";
+import Home from "./components/home/home";
+import Header from "./components/header/header";
 import { Route, Routes, useLocation } from "react-router-dom";
-import Register from "./components/authentication/Register";
-import Login from "./components/authentication/Login";
-import Templates from "./components/Templates";
-import Discover from "./components/Discover";
-import Learn from "./components/Learn";
-import Dashboard from "./components/dashboard/Dashboard";
-import DashboardLink from "./components/dashboard/DashboardLink";
-import DashboardAppearance from "./components/dashboard/DashboardAppearance";
+import Register from "./components/authentication/register/register";
+import Login from "./components/authentication/login/login";
+import Templates from "./components/templates/templates";
+import Discover from "./components/discover/discover";
+import Learn from "./components/learn/learn";
+import Dashboard from "./components/dashboard/dashboard";
+import DashboardLink from "./components/dashboard/dashboard-link/dashboard-link";
+import DashboardAppearance from "./components/dashboard/dashboard-appearance/dashboard-appearance";
 import { ToastContainer } from "react-toastify";
-import DashboardAccount from "./components/dashboard/DashboardAccount";
-import Username from "./components/dashboard/Username";
-import { LinkSpaceProvider } from "./context/LinkSpaceContext";
-import { LinksProvider } from "./context/LinksContext";
-import { UserProvider } from "./context/CurrentUserContext";
+import DashboardAccount from "./components/dashboard/dashboard-account/dashboard-account";
+import Username from "./components/dashboard/username/username";
+import { LinkSpaceProvider } from "./context/link-space-context";
+import { LinksProvider } from "./context/links-context";
+import { UserProvider } from "./context/current-user-context";
 
 function App() {
   const location = useLocation();
