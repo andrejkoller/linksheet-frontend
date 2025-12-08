@@ -53,7 +53,7 @@ function Home() {
                 </div>
                 <div className="intro-content-item-button">
                   <Button variant={"solid"} onClick={handleClaimLinksheet}>
-                    Claim your Linksheet
+                    Get started for free
                   </Button>
                 </div>
               </div>
