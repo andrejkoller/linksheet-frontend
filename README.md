@@ -107,3 +107,16 @@ The app uses JWT-based authentication:
 - Backend Repository: [Linksheet API](https://github.com/andrejkoller/LinksheetAPI)
 
 ## 📸 Screenshots
+
+<img width="1920" height="1080" alt="Screenshot 1" src="https://github.com/user-attachments/assets/137895fe-3069-4f86-b8f6-cfe40e5cbc47" />
+<img width="1920" height="1080" alt="Screenshot 2" src="https://github.com/user-attachments/assets/e9ab962d-02be-42d7-abf8-78248e7f3103" />
+<img width="1920" height="1080" alt="Screenshot 3" src="https://github.com/user-attachments/assets/01c10e18-d0ea-442d-a7a5-0528af6b4488" />
+<img width="1920" height="1080" alt="Screenshot 4" src="https://github.com/user-attachments/assets/207beece-d22a-4b04-aaef-350a36aea516" />
+<img width="1920" height="1080" alt="Screenshot 5" src="https://github.com/user-attachments/assets/d1163d7d-50d7-4afc-970b-36898ec64167" />
+<img width="1920" height="1080" alt="Screenshot 6" src="https://github.com/user-attachments/assets/b79bed7a-2fe4-4ab3-89ec-820d50e0c30d" />
+<img width="1920" height="1080" alt="Screenshot 7" src="https://github.com/user-attachments/assets/63588eb8-11b1-48d3-891b-261f95dfbba2" />
+<img width="1920" height="1080" alt="Screenshot 8" src="https://github.com/user-attachments/assets/7c647b94-2072-44ae-b87f-1c3747a9a441" />
+<img width="1920" height="1080" alt="Screenshot 9" src="https://github.com/user-attachments/assets/82598bb2-dab8-4aec-96c3-7ef66df5c36b" />
+<img width="1920" height="1080" alt="Screenshot 10" src="https://github.com/user-attachments/assets/767b342d-1e03-455a-a8d8-73b74524a1f9" />
+<img width="1920" height="1080" alt="Screenshot 11" src="https://github.com/user-attachments/assets/b8b8bab2-cad5-4c37-8a1f-9eefa78781af" />
+<img width="1920" height="1080" alt="Screenshot 12" src="https://github.com/user-attachments/assets/c5985dfc-7179-4d4e-bae7-58fa1b3588a8" />
