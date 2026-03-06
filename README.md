@@ -2,27 +2,25 @@
 
 A modern link-in-bio application that allows users to create customizable landing pages with multiple links – perfect for social media profiles, portfolios, and personal branding.
 
-This is the frontend part of the application, built with React and TypeScript, connecting to a REST API backend.
-
 ## ✨ Features
 
-- 🎨 Clean & Responsive UI - Beautiful interface that works on all devices
-- 🔗 Link Management - Create, organize, and manage multiple links
-- 🎯 Link Spaces - Group your links into different categories
-- 👤 User Profiles - Customizable personal profile pages
-- 🎭 Appearance Customization - Personalize your link page
-- 🔐 Authentication - Secure user registration and login
+- **Clean & Responsive UI** - Beautiful interface that works on all devices
+- **Link Management** - Create, organize, and manage multiple links
+- **Link Spaces** - Group your links into different categories
+- **User Profiles** - Customizable personal profile pages
+- **Appearance Customization** - Personalize your link page
+- **Authentication** - Secure user registration and login
 
 ## 🛠️ Technologies Used
 
-- React 19 - Modern React with latest features
-- TypeScript - Type-safe development
-- Vite - Fast build tool and development server
-- Chakra UI - Component library for consistent UI
-- React Router - Client-side routing
-- Axios - HTTP client for API calls
-- React Toastify - Beautiful notifications
-- React Icons - Icon library
+- **React** - Modern React with latest features
+- **TypeScript** - Type-safe development
+- **Vite** - Fast build tool and development server
+- **Chakra UI** - Component library for consistent UI
+- **React Router** - Client-side routing
+- **Axios** - HTTP client for API calls
+- **React Toastify** - Beautiful notifications
+- **React Icons** - Icon library
 
 ## 📋 Prerequisites
 
