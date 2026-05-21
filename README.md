@@ -1,4 +1,4 @@
-## Short description
+# linksheet frontend
 
 A modern link-in-bio application that allows users to create customizable landing pages with multiple links – perfect for social media profiles, portfolios, and personal branding.
 
@@ -13,14 +13,14 @@ A modern link-in-bio application that allows users to create customizable landin
 
 ## 🛠️ Technologies Used
 
-- React - Modern React with latest features
-- TypeScript - Type-safe development
-- Vite - Fast build tool and development server
-- Chakra UI - Component library for consistent UI
-- React Router - Client-side routing
-- Axios - HTTP client for API calls
-- React Toastify - Beautiful notifications
-- React Icons - Icon library
+- React
+- TypeScript
+- Vite
+- Chakra UI
+- React Router
+- Axios
+- React Toastify
+- React Icons
 
 ## 📋 Prerequisites
 
@@ -102,7 +102,7 @@ The app uses JWT-based authentication:
 
 ## 🔗 Related
 
-- Backend Repository: [Linksheet API](https://github.com/andrejkoller/LinksheetAPI)
+- Backend Repository: [Linksheet API](https://github.com/andrejkoller/linksheet-api)
 
 ## 📸 Screenshots
 
